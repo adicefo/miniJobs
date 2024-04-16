@@ -1,0 +1,23 @@
+<div class="outer">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+        <div class="panel border bg-white">
+          <h2>Email verifikacija</h2>
+          <p>{{sadrzaj}}</p>
+          <p style="color: #ae01a0;margin-top:-2%;font-weight: bold ">{{email}}</p>
+          <form>
+            <div class="verifikuj">
+              <label for="code">Verification Code:</label>
+              <input type="number" id="code" name="code" [(ngModel)]="verifikaciskiKod" required>
+            </div>
+            <small class="text-center pt-4 text-muted" >Niste primili kod? <a (click)="resendCode()" id="posalji">Posalji ponovo</a></small>
+            <button class="btn btn-primary btn-block mt-4 " type="submit" (click)="onSubmit()">Potvrdi</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

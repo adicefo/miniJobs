@@ -1,0 +1,311 @@
+.outer{
+  height: 100vh;
+  background:#f7f7f7;
+  position: relative;
+  z-index: 1;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+
+}
+.row > div{
+  margin-top: 4%;
+
+}
+.panelPodaci{
+  width: 60%;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow:5px 0px 5px 0px rgba(50,50,50,.75);
+
+
+}
+.dodatneInformacije{
+  background-color: white;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  box-shadow:5px 0px 5px 0px rgba(50,50,50,.75);
+}
+.panelDiv{
+  width: 40%;
+
+  background-color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow:5px 0px 5px 0px rgba(50,50,50,.75);
+
+
+
+}
+.panelDiv::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 5px;
+  height: 100%;
+  background-color: white; /* Change this to the desired background color of your div */
+  z-index: 2;
+}
+.panel-heading{
+
+  margin-bottom: 10px;
+}
+.linija{
+  height: 1px;
+  background-color: #cccccc;
+  width: 95%;
+  margin-right: 5%;
+}
+#forget{
+  min-width: 100px;
+  margin-left: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.hover{
+  text-decoration: none;
+}
+.form-inline label{
+  padding-left: 10px;
+  margin: 0;
+  cursor: pointer;
+}
+.btnAzuriraj{
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color:#d70dc6 ;
+  color:white;
+  padding: 10px;
+  border-color: white;
+  font-size: 15px;
+  font-weight: 500;
+
+  transition: 0.8s;
+}
+.btnAzuriraj:hover{
+  background-color:#ae01a0 ;
+}
+#btnOdjaviSe{
+  color: #ae01a0;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 7px;
+  margin-left: 30px;
+  border: 1px #ae01a0 solid;
+  padding: 10px;
+  transition: 0.8s;
+}
+#btnOdjaviSe:hover{
+  color:white;
+  background-color: #f8a8ef;
+  border:1px #ae01a0 solid ;
+}
+.btnIzbrisi{
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color:#ededed ;
+  padding: 10px;
+  border-color: white;
+  font-size: 15px;
+  font-weight: 500;
+
+  transition: 0.5s;
+}
+.btnIzbrisi:hover{
+  color: white;
+  background-color: #cccccc;
+  font-weight: 700;
+}
+
+.form-check-input:checked {
+  background-color: #d70dc6;
+  border-color: #d70dc6;
+  box-shadow: 0 0 0 1px rgba(215, 13, 198, 0.5);
+
+}
+.input-field{
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: #d70dc6;
+  margin-bottom: 1%;
+  width: 150%;
+
+
+}
+#citat{
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: #d70dc6;
+  margin-bottom: 1%;
+  width: 90%;
+
+}
+
+.input-field.error{
+  border: 1px solid red;
+  color: red;
+}
+div.error{
+  border: 1px solid red;
+  color: red;
+}
+input[type="text"],
+input[type="password"]{
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+}
+.fa-eye-slas.btn{
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+#imaRacun{
+  color:#ae01a0;
+  transition: 1s;
+}
+#imaRacun:hover{
+  color: #d70dc6;
+}
+.kontaktOsoba{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgba(51, 51, 51, 0.1);
+  width: 95%;
+
+
+}
+.grupa{
+  display: flex;
+  flex-direction: row;
+}
+.grupa > div,.kontaktOsoba >div {
+  margin-right: 15%;
+}
+
+ul {
+  width:14.7%;
+  margin-left: -0.25%;
+  list-style-type: none;
+  padding: 0;
+
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  position: absolute;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+
+li {
+
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Arial;
+}
+
+li:hover {
+  background-color: #f1f1f1;
+}
+
+input:focus + ul {
+  display: block;
+}
+.lokacija{
+
+  border-radius: 5px;
+  padding: 5px;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: #d70dc6;
+  width: 150%;
+
+}
+
+
+.profile-img{
+  width: 150px; /* Adjust the width and height according to your design */
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.vasaSlika{
+  font-size: 24px;
+  font-weight: 600;
+}
+#ponuda{
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.crtaBold{
+  height: 6px;
+  background-color: #2557a7;
+  width: 140%;
+  margin-left: -20%;
+
+}
+.nlabel,.nlabel-inline{
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: 600;
+  cursor:  pointer;
+
+}
+label{
+  font-size: 18px;
+
+}
+#pIzbrisi{
+  font-size: 18px;
+}
+.navbar-child  {
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+.divPodaci{
+  margin-left: 40%;
+
+}
+.nlabel-inline{
+  display: inline;
+  white-space: nowrap;
+}
+
+.lokacijaDiv{
+  width: 27%;
+  margin-left: 2%;
+}
+

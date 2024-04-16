@@ -1,0 +1,80 @@
+<app-navbar [tipKorisnika]="tipKorisnika"></app-navbar>
+
+
+<div class="outer">
+    <div class="step-navigation">
+      <div class="step-circle active"><span ></span></div>
+      <div class="step-line"></div>
+      <div class="step-circle"><span> </span></div>
+      <div class="step-line"></div>
+      <div class="step-circle"><span></span></div>
+      <div class="step-line"></div>
+      <div class="step-circle"><span></span></div>
+    </div>
+  <div class="content">
+    <div class="basic-information">
+      <div class="basic-title">
+        <p>Dodaj osnovne informacije</p>
+      </div>
+      <div class="basic-img">
+        <img class="basic-logo" src="{{logo}}" alt="Basic">
+      </div>
+    </div>
+    <form [formGroup]="forma">
+      <div  class="naziv_posla" >
+        <label class="label-naziv-posla">Naziv posla</label>
+        <div class="input-field" >
+          <input formControlName="naziv"  type="text" [class.error]="checkField('naziv')" placeholder="Naziv">
+        </div>
+        <div>
+          <small *ngIf="checkField('naziv')" class="errObavezno">Naziv posla je obavezan</small>
+        </div>
+
+      </div>
+
+
+      <div id="child-div" class="adresa-opcina">
+        <label class="label-adresa-posla">Adresa</label>
+        <div  class="input-field" >
+          <input formControlName="adresa"  type="text"  placeholder="Adresa">
+        </div>
+
+
+
+
+        <label class="label-opcina-posla">Lokacija</label>
+        <div  class="tipoviPoslova">
+          <input formControlName="lokacija" [class.error]="checkField('lokacija')" (input)="onInputChange()" placeholder="Lokacija, grad">
+          <div>
+            <small *ngIf="checkField('lokacija')" class="errObavezno">Lokacija je obavezna</small>
+          </div>
+          <ul *ngIf="filtiraneLokacije.length>0" [style.height]="filtiraneLokacije.length>=5?'125px':'auto'">
+            <li *ngFor="let l of filtiraneLokacije" (click)="onTitleSelected(l)" [value]="l.id">{{ l.opis }}</li>
+          </ul>
+        </div>
+
+      </div>
+    </form>
+
+
+    <div class="nastavi-nazad">
+      <div class="nazad" (click)="goBack()">
+        <button class="btn-nazad">< nazad</button>
+      </div>
+      <div class="nastavi">
+        <button (click)="nastavi()" class="btn-nastavi">spremi i nastavi</button>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+<app-footer  [top]="170" ></app-footer>
+
+
+
+
+
+
+

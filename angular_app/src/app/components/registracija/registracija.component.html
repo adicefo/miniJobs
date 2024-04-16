@@ -1,0 +1,113 @@
+<div class="outer">
+  <div class="container">
+    <div class="row">
+      <div  class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+        <div  class="panel border bg-white">
+
+
+          <div class="panel-heading">
+            <h3 class="pt-3 font-weight-bold">Registruj se </h3>
+          </div>
+          <div  class="panel-body p-3">
+            <form [formGroup]="registracionForm">
+
+
+
+              <div class="form-group p-3">
+                <label>Ime:</label>
+                <div class="input-field" [class.error]="checkField('ime') ||  checkPoljeIme() !== 'ne'"
+                >
+                  <span class="fa fa-user p-2  "></span>
+                  <input formControlName="ime" type="text" placeholder="Ime">
+                </div>
+              </div>
+              <small *ngIf="checkField('ime')" class="text-danger">Ime je obavezno</small>
+              <small *ngIf="checkPoljeIme()!=='ne' && checkPoljeIme()!=='required'"  class="text-danger">{{checkPoljeIme()}}</small>
+
+
+
+
+              <div class="form-group p-3">
+                <label>Prezime:</label>
+                <div class="input-field" [class.error]="checkField('prezime') || checkPoljePrezime()!=='ne'">
+                  <span class="fa fa-user p-2"></span>
+                  <input formControlName="prezime" type="text" placeholder="Prezime">
+                </div>
+              </div>
+              <small *ngIf="checkField('prezime')" class="text-danger">Prezime je obavezno</small>
+              <div *ngIf="checkPoljePrezime()!=='ne'  && checkPoljePrezime()!=='required'" class="error">
+                <span  class="text-danger">{{checkPoljePrezime()}}</span>
+              </div>
+
+
+              <div class="form-group p-3">
+                <label>Korisničko ime::</label>
+                <div class="input-field" [class.error]="checkField('korisnickoIme') || checkPoljeKorisnickome()!=='ne'" >
+                  <span class="fa fa-user p-2"></span>
+                  <input formControlName="korisnickoIme" type="text" placeholder="Korisničko ime">
+                </div>
+              </div>
+              <small *ngIf="checkField('korisnickoIme')" class="text-danger">Korisničko ime je obavezno</small>
+              <div *ngIf="checkPoljeKorisnickome()!=='ne'  && checkPoljeKorisnickome()!=='required'" class="error">
+                <span  class="text-danger">{{checkPoljeKorisnickome()}}</span>
+              </div>
+
+              <div class="form-group p-3">
+                <label>E-mail adresa:</label>
+                <div class="input-field" [class.error]="checkField('email') || checkPoljeEmail()!=='ne'">
+                  <span class="fa fa-envelope p-2"></span>
+                  <input formControlName="email" type="text" placeholder="Email">
+                </div>
+              </div>
+              <small *ngIf="checkField('email')" class="text-danger">Email je obavezan</small>
+                <small *ngIf="checkPoljeEmail()!=='ne' " class="text-danger">{{checkPoljeEmail()}}</small>
+
+
+
+
+              <div class="form-group p-3">
+                <label>Kreirajte lozinku:</label>
+                <div class="input-field" [class.error]="checkField('lozinka') || checkPoljeLozinka()!=='ne'">
+                  <span class="fa fa-lock p-2"></span>
+                  <input formControlName="lozinka" type="password" placeholder="Lozinka">
+                </div>
+              </div>
+              <small *ngIf="checkField('lozinka')" class="text-danger">Lozinka je obavezna</small>
+              <small *ngIf="checkPoljeLozinka()!=='ne' " class="text-danger">{{checkPoljeLozinka()}}</small>
+
+              <div class="form-group p-3">
+                <label>Potvrdite lozinku:</label>
+                <div class="input-field" [class.error]="checkField('potvrdiLozinku')">
+                  <span class="fa fa-key p-2"></span>
+                  <input formControlName="potvrdiLozinku" type="password" placeholder="Potvrdi lozinku">
+                </div>
+              </div>
+              <small *ngIf="checkField('potvrdiLozinku')" class="text-danger">Potvrda lozinke je obavezna</small>
+              <div *ngIf="provjeriKontrolu('potvrdiLozinku')">
+                <small *ngIf=" !registracionForm.get('potvrdiLozinku')?.valid
+                ; else podudarajuSe"
+                  class="text-danger">Lozinka i potvrdna lozinka moraju se podudarati.</small>
+              </div>
+              <ng-template #podudarajuSe>
+                <small class="text-success">Lozinke se podudaraju.</small>
+              </ng-template>
+
+
+
+
+
+              <div class="form-inline fr mt-4"> </div>
+              <button (click)="Registracija()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Registruj
+                se</button>
+              <div class="text-center pt-4 text-muted">Kreirali ste račun?<a id="imaRacun" routerLink="/login"> Prijavi
+                  se</a></div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

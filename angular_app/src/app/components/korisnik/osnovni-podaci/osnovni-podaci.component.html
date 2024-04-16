@@ -1,0 +1,294 @@
+<app-navbar [tipKorisnika]="tipKorisnika"></app-navbar>
+
+<div class="outer"  [style]="tipKorisnika === 'Poslodavac' ? { 'height': '166vh' } : { 'height': '100vh' }" >
+  <div class="container">
+    <div class="navbar">
+      <div class="navbar-child">
+        <div class="divProfil">
+          <a class="nlabel-inline"  [style]="{ color: '#d70dc6'}">Osnovni podaci</a>
+          <div class="crtaBold" [style]="{ backgroundColor: '#d70dc6'}"></div>
+        </div>
+        <div class="divPodaci" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+          <a class="nlabel-inline"  (click)="goToNovaLozinka()" [style.color]="labelColor" href="nova-lozinka">Pristup podacima</a>
+          <div class="crtaBold" [style.backgroundColor]="backgroundColor"></div>
+        </div>
+
+      </div>
+      <button id="btnOdjaviSe" (click)="odjavi()" >Odjavi se</button>
+    </div>
+    <!-- osnovni podaci i brisanje naloga -->
+    <div class="row" >
+      <!-- osnovni podaci -->
+      <div class="panelPodaci">
+        <div class="panel-heading">
+          <h3 class="pt-3 font-weight-bold">Vaši podaci
+          </h3>
+          <div class="linija">
+
+          </div>
+        </div>
+        <!-- za poslodavca -->
+        <div *ngIf="tipKorisnika=='poslodavac' || tipKorisnika=='Poslodavac'" class="panel-body p-3">
+          <form [formGroup]="forma">
+            <label>Kontakt osoba:</label>
+            <!--  ime i prezime -->
+            <div class="kontaktOsoba">
+
+              <div class="form-group p-3">
+                <label>Ime:</label>
+                <div class="input-field" [class.error]="checkField('ime') ||  checkPoljeIme() !== 'ne'"
+                >
+
+                  <input formControlName="ime" type="text" placeholder="Ime">
+                </div>
+                <small *ngIf="checkField('ime')" class="text-danger">Ime je obavezno</small>
+                <small *ngIf="checkPoljeIme()!=='ne' && checkPoljeIme()!=='required'"  class="text-danger">{{checkPoljeIme()}}</small>
+              </div>
+
+
+
+
+
+              <div class="form-group p-3">
+                <label>Prezime:</label>
+                <div class="input-field" [class.error]="checkField('prezime') || checkPoljePrezime()!=='ne'">
+
+                  <input formControlName="prezime" type="text" placeholder="Prezime">
+                </div>
+                <small *ngIf="checkField('prezime')" class="text-danger">Prezime je obavezno</small>
+                <div *ngIf="checkPoljePrezime()!=='ne'  && checkPoljePrezime()!=='required'" class="error">
+                  <span  class="text-danger">{{checkPoljePrezime()}}</span>
+                </div>
+              </div>
+            </div>
+
+            <!--  Korisničko ime i naziv firme -->
+            <div class="grupa">
+              <div class="form-group p-3">
+                <label>Korisničko ime:</label>
+                <div class="input-field" [class.error]="checkField('korisnickoIme') || checkPoljeKorisnickome()!=='ne'">
+
+                  <input formControlName="korisnickoIme" type="text" placeholder="Korisničko ime">
+                </div>
+                <small *ngIf="checkField('korisnickoIme')" class="text-danger">Korisničko ime je obavezno</small>
+                <div *ngIf="checkPoljeKorisnickome()!=='ne'  && checkPoljeKorisnickome()!=='required'" class="error">
+                  <span  class="text-danger">{{checkPoljeKorisnickome()}}</span>
+                </div>
+              </div>
+
+              <div class="form-group p-3">
+                <label>Naziv firme:</label>
+                <div class="input-field">
+                  <input formControlName="nazivFirme" type="text" placeholder="Naziv firme">
+                </div>
+              </div>
+
+            </div>
+
+            <!--  Broj telefona i adresa -->
+            <div class="grupa">
+              <!-- Telefon -->
+              <div class="form-group p-3">
+                <label>Broj telefona:</label>
+                <div class="input-field" [class.error]="checkField('brojTelefona')">
+                  <input formControlName="brojTelefona" type="text" placeholder="06X XXX XXX">
+                </div>
+                <small *ngIf="checkPoljeBrojTelefona()" class="text-danger">{{ checkPoljeBrojTelefona() }}</small>
+              </div>
+              <div class="form-group p-3">
+                <label>Adresa:</label>
+                <div class="input-field">
+                  <input formControlName="adresa" type="text" placeholder="Adresa">
+                </div>
+              </div>
+            </div>
+
+            <!-- Lokacija -->
+            <div class="lokacijaDiv">
+              <label class="label-opcina-posla">Lokacija:</label>
+              <div class="lokacija" [class.error]="checkField('lokacija')"  >
+                <input  formControlName="lokacija" type="text"  (input)="onInputChange()" placeholder="Lokacija, grad">
+                <ul *ngIf="filtiraneLokacije.length>0" [style.height]="filtiraneLokacije.length>=5?'125px':'auto'">
+                  <li *ngFor="let l of filtiraneLokacije" (click)="onTitleSelected(l)" [value]="l.id">{{ l.opis }}</li>
+                </ul>
+              </div>
+              <div>
+                <small *ngIf="checkField('lokacija')" class="text-danger">Lokacija je obavezna</small>
+              </div>
+            </div>
+
+
+            <div class="form-inline fr mt-4"> </div>
+            <button type="submit" class="btnAzuriraj" (click)="  azurirajPodatke()">
+              Ažurirajte svoje podatke</button>
+
+          </form>
+        </div>
+
+        <!-- za aplikanta -->
+        <div *ngIf="tipKorisnika=='aplikant' || tipKorisnika=='Aplikant'" class="panel-body p-3">
+          <form [formGroup]="formaAplikant">
+            <!--  ime i prezime -->
+            <div class="grupa">
+              <div class="form-group p-3">
+                <label>Ime:</label>
+                <div class="input-field" [class.error]="checkField('ime') || checkPoljeIme()!=='ne'">
+
+                  <input formControlName="ime" type="text" placeholder="Ime">
+                </div>
+                <small *ngIf="checkField('ime')" class="text-danger">Ime je obavezno</small>
+                <div *ngIf="checkPoljeIme()!=='ne'  && checkPoljeIme()!=='required'" class="error">
+                  <span  class="text-danger">{{checkPoljeIme()}}</span>
+                </div>
+              </div>
+
+              <div class="form-group p-3">
+                <label>Prezime:</label>
+                <div class="input-field" [class.error]="checkField('prezime') || checkPoljePrezime()!=='ne'">
+                  <input formControlName="prezime" type="text" placeholder="Prezime">
+                </div>
+                <small *ngIf="checkField('prezime')" class="text-danger">Prezime je obavezno</small>
+                <div *ngIf="checkPoljePrezime()!=='ne'  && checkPoljePrezime()!=='required'" class="error">
+                  <span  class="text-danger">{{checkPoljePrezime()}}</span>
+                </div>
+              </div>
+
+            </div>
+            <!-- Korisničko ime i broj telefona -->
+            <div class="grupa">
+              <div class="form-group p-3">
+                <label>Korisničko ime:</label>
+                <div class="input-field" [class.error]="checkField('korisnickoIme') || checkPoljeKorisnickome()!=='ne'">
+
+                  <input formControlName="korisnickoIme" type="text" placeholder="Korisničko ime">
+                </div>
+                <small *ngIf="checkField('korisnickoIme')" class="text-danger">Korisničko ime je obavezno</small>
+                <div *ngIf="checkPoljeKorisnickome()!=='ne'  && checkPoljeKorisnickome()!=='required'" class="error">
+                  <span  class="text-danger">{{checkPoljeKorisnickome()}}</span>
+                </div>
+              </div>
+
+              <div class="form-group p-3">
+                <label>Broj telefona:</label>
+                <div class="input-field" [class.error]="checkField('brojTelefona')"
+                >
+
+
+                  <input formControlName="brojTelefona" type="text" placeholder="06X XXX XXX">
+                </div>
+                <small *ngIf="checkPoljeBrojTelefona()" class="text-danger">{{ checkPoljeBrojTelefona() }}</small>
+              </div>
+
+            </div>
+
+            <!-- Lokacija -->
+              <div class="lokacijaDiv">
+            <label class="label-opcina-posla">Lokacija:</label>
+            <div class="lokacija" #locationInput (blur)="hideLocationList()" >
+              <input  formControlName="lokacija" type="text"  (input)="onInputChange()" placeholder="Lokacija, grad">
+              <ul *ngIf="filtiraneLokacije.length>0" [style.height]="filtiraneLokacije.length>=5?'125px':'auto'">
+                <li *ngFor="let l of filtiraneLokacije" (click)="onTitleSelected(l)" [value]="l.id">{{ l.opis }}</li>
+              </ul>
+            </div>
+          </div>
+
+
+            <div class="form-inline fr mt-4"> </div>
+            <button type="submit" class="btnAzuriraj" (click)="  azurirajPodatke()">
+              Ažurirajte svoje podatke</button>
+
+
+
+          </form>
+        </div>
+
+      </div>
+      <!-- za brisanje naloga-->
+      <div class="panelDiv">
+        <div class="panel-heading">
+          <h3 class="pt-3 font-weight-bold">Brisanje naloga
+          </h3>
+          <div class="linija">
+
+          </div>
+        </div>
+        <div class="panel-body p-3">
+          <p id="pIzbrisi">Želim izbrisati svoje podatke</p>
+          <button  class="btnIzbrisi" type="button"  (click)="obrisi=true">
+            IZBRIŠITE INFORMACIJE O NALOGU</button>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- dodatne informacije -->
+    <div class="row" *ngIf="tipKorisnika=='Poslodavac'">
+
+      <div class="dodatneInformacije">
+        <div class="panel-heading">
+          <h3 class="pt-3 font-weight-bold">Dodatne informacije
+          </h3>
+          <div class="linija">
+
+          </div>
+        </div>
+        <div class="panel-body p-3">
+
+          <p class="vasaSlika" >Vaša slika</p>
+          <label for="fileInput" class="profile-img">
+            <input id="fileInput" type="file" style="display: none;" (change)="onFileChanged($event)">
+            <img [src]="slika" alt="Basic">
+          </label>
+
+          <div>
+            <p id="ponuda">Vaša ponuda za one koji traže posao</p>
+            <p>Ponuda se pojavljuje pored vašeg profila. Opišite u nekoliko rečenica zašto bi se radnici trebali prijaviti upravo na Vaš posao.</p>
+            <div class="form-outline">
+              <textarea [(ngModel)]="ponuda" class="form-control" id="textAreaExample2" rows="8" placeholder="Vaša ponuda"></textarea>
+            </div>
+          </div>
+
+
+
+          <button type="submit" class="btnAzuriraj" (click)="updateDodatneInformacije()">
+            Spremi podatke</button>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal"  tabindex="-1"*ngIf="obrisi" style="display: block;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Brisanje korisničkog naloga</h5>
+        <button type="button" class="close"(click)="obrisi=false" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Ako želite izbrisati korisnički račun, molimo Vas unesite ovaj broj {{randomNumber}}</p>
+        <input [(ngModel)]="confirmNumber" type="number">
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary" (click)="obrisiProfil()" [disabled]="!isEqual()">Potvrdi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Other content -->
+<app-footer  [top]="170" ></app-footer>
+
+
+

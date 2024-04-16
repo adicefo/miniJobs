@@ -1,0 +1,21 @@
+.footerDiv
+{
+  position: absolute;
+
+  left: 0;
+  width: 100%;
+  height:10%;
+
+  background-color: rgb(240,240,240);
+  color:grey;
+}
+.footerDiv a
+{
+  text-decoration: none;
+  color: grey;
+  margin-right: 15%;
+}
+.footerDiv a:first-of-type
+{
+  margin-left: 16%;
+}

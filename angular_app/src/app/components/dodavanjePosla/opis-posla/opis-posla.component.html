@@ -1,0 +1,123 @@
+<app-navbar [tipKorisnika]="tipKorisnika"></app-navbar>
+<div class="outer">
+  <div class="step-navigation">
+    <div class="step-circle completed"><span class="fa fa-check"></span></div>
+    <div class="step-line1"></div>
+    <div class="step-circle completed"><span class="fa fa-check"> </span></div>
+    <div class="step-line1"></div>
+    <div class="step-circle active"><span></span></div>
+    <div class="step-line"></div>
+    <div class="step-circle"><span></span></div>
+  </div>
+
+  <div class="content">
+    <div class="basic-information">
+      <div class="basic-title">
+        <p>Opis i plaćanje posla</p>
+      </div>
+      <div class="basic-img">
+        <img class="basic-logo" src="{{logo}}" alt="Basic">
+      </div>
+    </div>
+
+    <form [formGroup]="forma">
+      <div  class="opis_posla" >
+        <label class="label-opis-posla">Opis posla</label>
+        <p class="p-opis">
+          Opišite odgovornosti ovog posla, potrebno radno iskustvo, vještine ili obrazovanje </p>
+        <div class="opis">
+          <ckeditor formControlName="opis"></ckeditor>
+        </div>
+        <div>
+          <small *ngIf="checkField('opis')" class="errObavezno">Opis posla je obavezan</small>
+        </div>
+
+      </div>
+
+
+      <div class="placanje"
+           [style.height]="forma.get('nacinPlacanja')?.value!=='Po dogovoru'?
+          225:110  " >
+        <label class="label-vrijeme-posla">Izaberite način plaćanja</label>
+        <div class="placanje-posla">
+          <div>
+            <button
+              *ngFor="let placanje of nacinPlacanja; let i=index"
+              [style.color]="selectedBtnNacinPlacanja === i ? 'white' : 'black'"
+
+              [style.background-color]="
+           selectedBtnNacinPlacanja === i && isMouseOverNacinPlacanja[i] ? '#ae01a0' :
+           selectedBtnNacinPlacanja === i && !isMouseOverNacinPlacanja[i] ? '#d70dc6' :
+           selectedBtnNacinPlacanja !== i && isMouseOverNacinPlacanja[i] ? '#f8a8ef' :
+           'white'"
+
+              (mouseenter)="isMouseOverNacinPlacanja[i] = true"
+              (mouseleave)="isMouseOverNacinPlacanja[i] = false"
+              (click)=" provjeriButtonNacinPlacanja(i,placanje)">
+              <span class="{{ selectedBtnNacinPlacanja === i?'fa fa-check':'fa fa-plus' }}" aria-hidden="true"></span> {{ placanje.opis}}
+            </button>
+
+          </div>
+
+        </div>
+        <div>
+          <small *ngIf="checkField('nacinPlacanja')" class="errObavezno">Potrebno je izabrati način plačanja</small>
+        </div>
+
+        <div *ngIf="forma.get('nacinPlacanja')?.value!=='po dogovoru'">
+          <label class="label-cijena">Cijena</label>
+          <div class="input-field" >
+            <input formControlName="cijena"  type="number" [class.error]="checkField('cijena')" placeholder="Cijena">
+          </div>
+          <div>
+            <small *ngIf="checkField('cijena') " class="errObavezno">Potrebno je unijeti cijenu</small>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="dodatno">
+        <label class="label-dodatno">Da li plaćate?</label>
+        <div >
+          <div class="dodatnoBtns">
+            <button
+              *ngFor="let r of dodatnoPlacanje; let i = index"
+              [style.color]="selectedButtonDodatno.indexOf(i) !== -1 ? 'white' : 'black'"
+              [style.background-color]="
+           selectedButtonDodatno.indexOf(i) !== -1 && isMouseOverDodatno[i] ? '#ae01a0' :
+           selectedButtonDodatno.indexOf(i) !== -1 && !isMouseOverDodatno[i] ? '#d70dc6' :
+           selectedButtonDodatno.indexOf(i) === -1 && isMouseOverDodatno[i] ? '#f8a8ef' :
+           'white'"
+
+              (mouseenter)="isMouseOverDodatno[i] = true"
+              (mouseleave)="isMouseOverDodatno[i] = false"
+              (click)="provjeriButtonDodatnoPlacanje(i,r)">
+              <span class="{{ getIkonicaClass(i) }}" aria-hidden="true"></span> {{ r.opis }}
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+    </form>
+
+
+    <div class="nastavi-nazad">
+      <div class="nazad">
+        <button class="btn-nazad" (click)=" router.navigate(['detalji-posla']);">< nazad</button>
+      </div>
+      <div class="nastavi">
+        <button (click)="nastavi()" class="btn-nastavi">spremi i nastavi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer [top]="180"></app-footer>
+
+
+
+
+
+
+

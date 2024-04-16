@@ -1,0 +1,123 @@
+<app-navbar [tipKorisnika]="tipKorisnika"></app-navbar>
+<div class="outer">
+
+  <div class="step-navigation">
+    <div class="step-circle completed"><span class="fa fa-check"></span></div>
+    <div class="step-line1"></div>
+    <div class="step-circle active"><span> </span></div>
+    <div class="step-line"></div>
+    <div class="step-circle"><span></span></div>
+    <div class="step-line"></div>
+    <div class="step-circle"><span></span></div>
+  </div>
+  <div class="content">
+    <div class="basic-information">
+      <div class="basic-title">
+        <p>Detalji posla</p>
+      </div>
+      <div class="basic-img">
+        <img class="basic-logo" src="{{logo}}" alt="Basic">
+      </div>
+    </div>
+    <form [formGroup]="forma">
+      <div class="tip_posla">
+        <label class="label-tip-posla">Tip posla</label>
+        <p class="p-tip">Unesite koji vam tip radnika treba, ako ne znate samo unesite "radnik"</p>
+        <div  class="tipoviPoslova">
+          <input formControlName="posaoTip" [class.error]="checkField('posaoTip')"  (input)="onInputChange()"  placeholder="Tip posla">
+          <div>
+            <small *ngIf="checkField('posaoTip')" class="errObavezno">Tip posla je obavezan</small>
+          </div>
+          <ul *ngIf="filteredJobTitles.length>0" [style.height]="filteredJobTitles.length>=5?'125px':'auto'">
+            <li *ngFor="let pt of filteredJobTitles" (click)="onTitleSelected(pt)">{{ pt.naziv }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="p-raspored_posla">
+        <label class="label-raspored-posla">Raspored posla</label>
+        <div class="raspored-posla">
+          <div>
+            <button
+              *ngFor="let r of prikaziRasporedePoslova; let i = index"
+              [style.color]="selectedButtonRasporedPoslova.indexOf(i) !== -1 ? 'white' : 'black'"
+              [style.background-color]="
+           selectedButtonRasporedPoslova.indexOf(i) !== -1 && isMouseOverRaspored[i] ? '#ae01a0' :
+           selectedButtonRasporedPoslova.indexOf(i) !== -1 && !isMouseOverRaspored[i] ? '#d70dc6' :
+           selectedButtonRasporedPoslova.indexOf(i) === -1 && isMouseOverRaspored[i] ? '#f8a8ef' :
+           'white'"
+
+              (mouseenter)="isMouseOverRaspored[i] = true"
+              (mouseleave)="isMouseOverRaspored[i] = false"
+              (click)="provjeriButtonRaporedPosla(i,r)">
+              <span class="{{ getIkonicaClass(i) }}" aria-hidden="true"></span> {{ r.opis }}
+            </button>
+            <span (click)="showRasporedPoslova()" class="vise">{{dugmicTitleRasporedPosla}}...</span>
+          </div>
+        </div>
+        <div>
+          <small *ngIf="checkField('raspored')" class="errObavezno">Raspored posla je obavezan</small>
+        </div>
+      </div>
+
+      <div class="adresa-opcina">
+        <label class="label-vrijeme-posla">Koliko brzo želite da pronađete?</label>
+        <div class="vrijeme-posla">
+          <div>
+            <button
+              *ngFor="let v of vrijeme; let i=index"
+              [style.color]="selectedBtnVrijeme === i ? 'white' : 'black'"
+
+              [style.background-color]="
+           selectedBtnVrijeme === i && isMouseOverVrijeme[i] ? '#ae01a0' :
+           selectedBtnVrijeme === i && !isMouseOverVrijeme[i] ? '#d70dc6' :
+           selectedBtnVrijeme !== i && isMouseOverVrijeme[i] ? '#f8a8ef' :
+           'white'"
+
+              (mouseenter)="isMouseOverVrijeme[i] = true"
+              (mouseleave)="isMouseOverVrijeme[i] = false"
+              (click)=" provjeriButtonVrijeme(i)">
+              <span class="{{ selectedBtnVrijeme === i?'fa fa-check':'fa fa-plus' }}" aria-hidden="true"></span> {{ v }}
+            </button>
+
+          </div>
+          <div>
+            <small *ngIf="checkField('vrijeme')" class="errObavezno">Vremenski period u kojem želite pronaći radnike je obavezan</small>
+          </div>
+        </div>
+
+        <div class="dropmenu" >
+          <label class="label-brojLjudi-posla">Koliko vam je potrebno ljudi za ovaj posao?</label>
+          <div  class="brojLjudi" >
+            <select formControlName="brojLjudi" [class.error]="checkField('brojLjudi')"  id="p">
+              <option *ngFor="let p of brojLjudi" [value]="p">{{p}}</option>
+            </select>
+          </div>
+          <div>
+            <small *ngIf="checkField('brojLjudi')" class="errObavezno">Broj radnika je obavezan</small>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+
+    <div class="nastavi-nazad">
+      <div class="nazad">
+        <button class="btn-nazad" (click)="router.navigate(['osnovne-informacije'])">< nazad</button>
+      </div>
+      <div class="nastavi">
+        <button class="btn-nastavi" (click)="nastavi()">spremi i nastavi</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer [top]="170"  ></app-footer>
+
+
+
+
+
+
+
+

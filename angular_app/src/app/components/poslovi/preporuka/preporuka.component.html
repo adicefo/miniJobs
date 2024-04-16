@@ -1,0 +1,93 @@
+<app-navbar tipKorisnika="aplikant"></app-navbar>
+
+<div class="tekstDiv">
+    <p>PONUDA USLUGA</p>
+    <p>Recite nam nešto više o svojim mogućnostima!</p>
+</div>
+
+<div class="content" (mouseenter)="postaviPodatke()">
+    <div class="opisDiv">
+        <label>Opis:</label>
+        <textarea name="" id="" cols="50" rows="5" placeholder="kratki opis mogućnosti" style="margin-left: 200px;"
+            [(ngModel)]="podaci.opis"></textarea>
+    </div>
+    <div class="tipPoslaDiv">
+        <label>Tip posla:</label>
+        <select style="margin-left: 160px; width: 400px;" [(ngModel)]="podaci.posaoTip_id">
+            <option *ngFor="let x of tipoviPoslova" [value]="x.id">{{x.naziv}}</option>
+        </select>
+    </div>
+    <div class="satnicaDiv">
+        <label>Prijedlog satnice:</label>
+        <select style="margin-left: 105px; width: 400px;" [(ngModel)]="podaci.prijedlogSatnice">
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+        </select>
+    </div>
+    <div class="obrazovanjeDiv">
+        <label>Nivo obrazovanja:</label>
+        <input type="text" placeholder="nivo obrazovanja" style="margin-left: 100px; width: 400px"
+            [(ngModel)]="podaci.nivoObrazovanja">
+    </div>
+
+    <div class="cv">
+        <label>CV:</label>
+        <label for="fileInput" class="custom-file-upload">
+            <i class="bi bi-plus-circle" style="color: green;"></i>
+            <input id="fileInput" type="file" (change)="handleUpload($event,false)" style="display: none" />
+        </label>
+    </div>
+
+    <div class="slikeDiv">
+        <label>Slike:</label>
+        <div class="placeholderDiv" [ngStyle]="podaci.slika==null?{'background-color': 'rgb(187, 187, 187)','border': '1px solid black'}
+        :{'background-color':'transparent','border':'none'}">
+            <label for="fileInput2" class="custom-file-upload">
+                <span *ngIf="!podaci.slika">Upload Image</span>
+                <input id="fileInput2" type="file" (change)="handleUpload($event)" style="display: none;">
+            </label>
+            <img *ngIf="podaci.slika" [src]="podaci.slika" style="width:100px;height: 75px;" alt="Preview Image"
+                (click)="podaci.slika=null">
+        </div>
+    </div>
+
+    <div class=" iskustvoDiv">
+        <label>Iskustvo:</label>
+        <div class="radioDiv">
+            <input type="radio" name="iskustvo" id="bezIskustva" value="bez iskustva" [(ngModel)]="podaci.iskustvo">
+            <label for="bezIskustva"> bez iskustva</label><br>
+            <input type="radio" name="iskustvo" id="manjeOd1" value="manje od 1 godine" [(ngModel)]="podaci.iskustvo">
+            <label for="manjeOd1">manje od 1 godine</label><br>
+            <input type="radio" name="iskustvo" id="1-3" value="1-3 godine" [(ngModel)]="podaci.iskustvo">
+            <label for="1-3">1-3 godine iskustva</label><br>
+            <input type="radio" name="iskustvo" id="3-10" value="3-10 godine" [(ngModel)]="podaci.iskustvo">
+            <label for="3-10">3-10 godina</label><br>
+            <input type="radio" name="iskustvo" id="10+" value="preko 10 godina" [(ngModel)]="podaci.iskustvo">
+            <label for="10+">preko 10 godina</label>
+        </div>
+    </div>
+
+    <button class="ponudaBtn" (click)="updateAplikant()">Spremi informacije</button>
+</div>
+
+
+<app-footer></app-footer>

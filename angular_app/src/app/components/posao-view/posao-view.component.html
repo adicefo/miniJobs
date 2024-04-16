@@ -1,0 +1,71 @@
+<div class="modal" tabindex="-1" style="display: block;" *ngIf="isModalOpen" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="m-header">
+                <span
+                  style="font-size: 150%; font-weight: bolder; margin-left: -35%; color:rgb(174, 1, 160);">miniJob</span>
+        <button  *ngIf="posao.status !== 'Završen' && this.tipKorisnika==='Aplikant'"
+                 style="font-size:200%; margin-left:27%;margin-right:-10%;background-color: transparent; border: none;"
+                 (click)="pripremiPostavljanje()"  ><i class="bi bi-question-lg"></i></button>
+        <button  *ngIf="posao.status !== 'Završen' && this.tipKorisnika==='Aplikant'"  style="font-size:200%;background-color: transparent; border: none;margin-left: 25%" (click)="spremiPosao()"><i
+          class="fa fa-bookmark-o"></i></button>
+        <button type="button" class="btn-close" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"
+                [style.margin-left.%]="(posao.status !== 'Završen' && this.tipKorisnika==='Aplikant')?15:65"    style=" display: inline; font-size: 150%;"></button>
+        <p class="uredi">Oglas za posao</p>
+      </div>
+      <div class="modal-body">
+        <div class="content">
+          <div class="jobTitle">
+            <p class="p-jobTitle">{{posao.naziv}}</p>
+            <p class="usernameAndLocation">{{posao.poslodavac}} - {{posao.opstina}}, {{posao.adresa}}</p>
+          </div>
+          <div class="description">
+            <p class="highlight">Opis posla:</p>
+            <div class="highlight " [innerHTML]="posao.opis"></div>
+
+            <p class="jobType"><span class="content-icon"></span> Tip posla: {{posao.posaoTip}}</p>
+            <p class="payType"><span class="content-icon"></span> Plaćanje: {{posao.cijena !== -2 ? posao.cijena : ""}} {{posao.cijena !== -2 ? "KM" : ""}} {{posao.nacinPlacanjacopy}}</p>
+            <p class="schedule"><span class="content-icon"></span> Raspored posla:</p>
+            <p class="highlight">{{posao.rasporedOdgovoricopy}}</p>
+
+            <p class="addPay" *ngIf="posao.dodatnoPlacanje"><span class="content-icon"></span> Dodatno plaća:</p>
+            <p class="highlight" *ngIf="posao.dodatnoPlacanje">{{posao.dodatnoPlacanjecopy}}</p>
+            <div class="employeeCount">
+              <span class="content-icon"><i class="fa fa-users"></i></span> Broj traženih zaposlenih: {{posao.brojRadnika}}
+            </div>
+            <p class="deadline" *ngIf="posao.status !== 'Završen'"><span class="content-icon"></span> Rok za prijavu: {{posao.deadline}}</p>
+            <div *ngIf="posao.status === 'Završen'" class="jobFinished">
+              <span class="content-icon jobType-icon"></span> Posao je završen
+            </div>
+            <button type="button" class="btn btn-success" style="border-radius: 15px;width: 25%;margin-left: 35%; "
+                    *ngIf="posao.status !== 'Završen' && this.tipKorisnika==='Aplikant'"      (click)="apliciraj()">Apliciraj</button>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" style="display: block; position: fixed;top:25%; color: white; " *ngIf="postavi!=null">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color:rgb(174, 1, 160) ;">
+      <div class="modal-header">
+        <h5 class="modal-title">Postavite pitanje korisniku
+          {{posao.poslodavac}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="postavi=null"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" placeholder="Upišite pitanje..." [(ngModel)]="this.postavi.naziv"
+               style="width: 100%;padding: 5px;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" style="border-radius: 15px;"
+                (click)="postaviPitanje()">Postavi</button>
+      </div>
+    </div>
+  </div>
+</div>

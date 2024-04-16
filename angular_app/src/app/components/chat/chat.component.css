@@ -1,0 +1,93 @@
+.chat-container {
+    box-sizing: border-box;
+    display: flex;
+    margin-top: 3%;
+    height: 700px;
+    width: 75%;
+    margin-left: 10%;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    background-color: rgb(174, 1, 160, 0.8);
+
+}
+
+.contacts {
+    color: white;
+    width: 400px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: 2px dotted white;
+}
+
+.contact:hover {
+    background-color: rgb(230, 230, 230, 0.2);
+}
+
+.contact img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.contact-name {
+    font-weight: bold;
+    font-size: large;
+}
+
+
+.contact.active {
+    background-color: #ccc;
+}
+
+.chat {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+.message {
+    background-color: #dbdbdbac;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message-content {
+    margin-bottom: 5px;
+    font-size: large;
+}
+
+.message-timestamp {
+    font-size: 15px;
+    color: #999;
+    margin-left: 83%;
+    margin-bottom: -15px;
+}
+
+.message-username {
+    margin: 0px;
+    font-weight: bold;
+    color: #555;
+}
+
+.user-input {
+    margin-top: 10px;
+}
+
+.user-input input {
+    width: 80%;
+    padding: 5px;
+}
+
+.user-input button {
+    padding: 5px 10px;
+}

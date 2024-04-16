@@ -1,0 +1,241 @@
+<!--Modifikacije se dodaju ovdje-->
+<div class="body" [ngStyle]="odabraniPosao!=null?{'opacity':'0.5','background-color':'transparent'}:{'opacity':'1'}">
+    <div class="content">
+        <div *ngIf="tipKorisnika!=='poslodavac'" class="tekstContent">
+            <p>miniJob-online part-time oglasnik</p>
+            <p>{{tipKorisnika}}</p>
+            <p style="margin-top: -1%;">Pronađite posao sada!</p>
+        </div>
+        <div *ngIf="tipKorisnika==='poslodavac'" class="tekstContent">
+            <p>miniJob-online part-time oglasnik</p>
+            <p style="margin-top: -1%;">Pronađite radnika sada!</p>
+        </div>
+
+        <div class="searchDiv">
+            <div class="gdjeDiv">
+                <i class="bi bi-geo-alt-fill" style="color: rgb(174, 1, 160)"></i>
+                <label style="font-weight: bold; font-size: larger;">Gdje?</label>
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input id="search-focus" type="search" id="form1" class="form-control" placeholder="grad"
+                            [(ngModel)]="gradSearch" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="staDiv">
+                <i class="bi bi-search" style="color: rgb(174, 1, 160)"></i>
+                <label style="font-weight: bold; font-size: larger;">Šta?</label>
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input id="search-focus2" type="search" id="form2" class="form-control"
+                            placeholder="naziv posla..." [(ngModel)]="nazivSearch" />
+                    </div>
+                </div>
+            </div>
+
+            <button *ngIf="tipKorisnika==''" routerLink="registracija-menu" class="btn btn-success"
+                style="width: 35%;position: relative;left: 5%;;">Traži</button>
+
+            <button *ngIf="tipKorisnika=='aplikant'" class="btn btn-success"
+                style="width: 35%;position: relative;left: 5%;;" (click)="filtriraj()">Traži</button>
+            <button *ngIf="tipKorisnika=='poslodavac' ||tipKorisnika=='Poslodavac' " class="btn btn-success"
+                style="width: 35%;position: relative;left: 5%;;" (click)="filtrirajAplikante()">Traži</button>
+        </div>
+
+        <div *ngIf="tipKorisnika!=='poslodavac'" class="tekstDiv">
+            <p>POSLJEDNJI OGLASI</p>
+            <p>Odaberite posao koji vam najviše odgovara!</p>
+        </div>
+        <div *ngIf="tipKorisnika==='poslodavac'" class="tekstDiv">
+            <p></p>
+            <p>Pronađite radnika koji vam je potreban!</p>
+        </div>
+
+        <div class="list-group" *ngIf="tipKorisnika===''">
+            <a routerLink="registracija-menu" href="#"
+                class="list-group-item list-group-item-action flex-column align-items-start"
+                *ngFor="let x of this.odredeniPoslovi">
+                <div class="d-flex w-100 justify-content-between">
+                    <span class="znak"
+                        style="font-size: medium; margin-left: 0;margin-top: 0.5%; color:rgb(174, 1, 160);">miniJob</span>
+                    <h5 class="mb-1">{{x.naziv}}</h5>
+                    <i class="bi bi-geo-alt-fill" style="color: gray;white-space: nowrap;position: absolute;left:65%;
+                      font-size: 100%;"> {{x.opstina.description}}</i>
+                    <i class="bi bi-currency-exchange" style="font-size:100%;
+                  position: absolute; right: 10%;"></i>
+                    <div class="cijenaDiv">
+                        <h6>{{x.cijena !== -2 ? x.cijena : ""}} {{x.cijena !== -2 ? "KM" : ""}} {{x.nacinPlacanja}}</h6>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="list-group" style="position: absolute;left: 20%; flex-direction: row;"
+        *ngIf="tipKorisnika==='aplikant'">
+        <div class="d-flex flex-row flex-nowrap overflow-auto">
+            <div class="card card-block mx-2" style="min-width: 300px; padding: 5px; "
+                *ngFor="let x of this.filtriraniPoslovi">
+                <h5 style="padding: 5px;">{{x.naziv}}</h5>
+                <i class="bi bi-geo-alt-fill" style="color: gray;white-space: nowrap;
+                      font-size: 110%; padding: 3%; margin-top: 3%;"> <span>{{x.opstina}}</span> </i>
+                <i class="bi bi-currency-exchange"
+                    style="font-size:110%; padding: 3%; margin-top: 3%;"><span>{{x.cijena !== -2 ? x.cijena : ""}} {{x.cijena !== -2 ? "KM" : ""}} {{x.nacinPlacanja}}</span></i>
+                <button class="ponudaBtn" style="width: 50%;padding: 3%; border-radius: 5px;
+                background-color: rgb(174, 1, 160);color: white; margin-left: 25%;margin-bottom: 3%;"
+                    (click)="odabraniPosao=x">Pogledaj
+                    ponudu</button>
+
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="tipKorisnika!=='poslodavac'" class="footer"
+        [ngStyle]="jelAplikant?{'margin-top':'25%'}:{'margin-top':'27%'}">
+        <p>Sa samo nekoliko klikova</p>
+        <div class="flexDiv">
+            <div class="registrujSeDiv">
+                <i class="bi bi-person-check"></i>
+                <p>Registruj se</p>
+            </div>
+            <div class="potraziDiv">
+                <i class="bi bi-search"></i>
+                <p>Potraži posao</p>
+            </div>
+            <div class="aplicirajDiv">
+                <i class="bi bi-check2-all"></i>
+                <p>Apliciraj</p>
+            </div>
+            <div class="zaradiDiv">
+                <i class="bi bi-currency-exchange"></i>
+                <p>Zaradi novac</p>
+            </div>
+        </div>
+        <button *ngIf="tipKorisnika===''" routerLink="registracija-menu" class="btn btn-outline-danger" id="registerBtn"
+            style="position: absolute;right:75%;
+          margin-top: 5%;
+          width:25%; padding: 1%;">Registruj se besplatno</button>
+
+    </div>
+
+
+
+    <div class="outer" *ngIf="tipKorisnika==='poslodavac' || tipKorisnika==='Poslodavac'">
+        <div class="container">
+            <div class="aplikanti">
+                <div class="dojmoviGroup">
+                    <div class="aplikant" *ngFor="let aplikant of this.filtriraniAplikanti"
+                        (click)="goToProfil(aplikant.username)">
+                        <div class="korisnikSlika">
+                            <label class="user-img">
+                                <img [src]="userSlika">
+                            </label>
+
+                        </div>
+                        <div class="sadrzaj">
+                            <div class="usernameDatum">
+                                <p class="username">{{aplikant.username}}</p>
+                                <div class="brojZavrsenih">
+                                    <p id="brZPoslova">{{aplikant.brojZavrsenihPoslova}}</p>
+                                </div>
+                            </div>
+                            <div class="lokacijaDiv" *ngIf="aplikant.opstina">
+                                <div class="lokacija">
+                                    <p class="fa fa-map-marker"></p>
+                                    <p id="lokacija"> {{aplikant.opstina}}</p>
+                                </div>
+                            </div>
+                          <div class="posaoTipIconDiv" *ngIf="aplikant.posaoTip" >
+
+                            <p id="iconTipPosla" >  🧰</p>
+                            <p class="posaoTip">{{aplikant.posaoTip}}</p>
+
+                          </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+<div class="modal" tabindex="-1" *ngIf="odabraniPosao!=null" style="display: block;" (mouseover)="uredivanjeDatuma()">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="m-header">
+                <span
+                    style="font-size: 150%; font-weight: bolder; margin-left: -35%; color:rgb(174, 1, 160);">miniJob</span>
+
+                <button
+                    style="font-size:200%; margin-left:27%;margin-right:-10%;background-color: transparent; border: none;"
+                    (click)="pripremiPostavljanje()"><i class="bi bi-question-lg"></i></button>
+                <button style="font-size:200%;background-color: transparent; border: none;" (click)="spremiPosao()"><i
+                        class="fa fa-bookmark-o"></i></button>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="odabraniPosao=null" style=" display: inline; font-size: 150%;"></button>
+            </div>
+            <div class="modal-body">
+                <h5 style="font-size: 150%; margin-left: 5%; margin-top: 1%;">{{this.odabraniPosao.naziv}}</h5>
+                <i class="bi bi-geo-alt-fill" style="color: gray;white-space: nowrap;
+                      font-size: 110%; padding: 3%; margin-top: 3%; margin-left: 2%;"></i>
+                <h6 style="display: inline; margin-left: -5%;">{{this.odabraniPosao.opstina}}</h6>
+                <a style=" display:block;color: grey; margin-left:5%;margin-top:2%;cursor: pointer; text-decoration:underline;"
+                    (click)="goToProfil(this.odabraniPosao.poslodavac)">
+                    {{this.odabraniPosao.poslodavac}}</a>
+                <p style="margin-top: 3%; margin-left: 5%; " [innerHTML]="odabraniPosao.opis"></p>
+                <hr style="width: 80%; margin-left: 5%;">
+                <div class="prviMDiv" style="margin-top: 5%;">
+                    <i class="bi bi-currency-dollar" style=" font-size:150%;margin-left: 5%;"></i>
+                    <h5 style="display: inline;">{{odabraniPosao.cijena !== -2 ? odabraniPosao.cijena : ""}} {{odabraniPosao.cijena !== -2 ? "KM" : ""}} {{odabraniPosao.nacinPlacanja}}</h5>
+                </div>
+                <div class="drugiMDiv" style="margin-top: 5%;">
+                    <i class="bi bi-table" style="font-size:150%;margin-left: 5%;"></i>
+                    <h5 style="display: inline;">{{this.odabraniPosao.brojRadnika}} radnik/a</h5>
+                </div>
+                <div class="treciMDiv" style="margin-top: 5%;">
+                    <i class="bi bi-alarm" style="font-size:150%;margin-left: 5%; "></i>
+                    <h5 style="display: inline;">{{this.datumUredi}} završni rok</h5>
+                </div>
+                <p style="margin-top: 10%;margin-left: 29%;"> Jesmo li ispunili vaša očekivanja?</p>
+                <button type="button" class="btn btn-success" style="border-radius: 15px;width: 25%;margin-left: 35%; "
+                    (click)="apliciraj()">Apliciraj</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" tabindex="-1" style="display: block; position: fixed;top:25%; color: white; " *ngIf="postavi!=null">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color:rgb(174, 1, 160) ;">
+            <div class="modal-header">
+                <h5 class="modal-title">Postavite pitanje korisniku
+                    {{odabraniPosao.poslodavac.korisnickoIme}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="postavi=null"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" placeholder="Upišite pitanje..." [(ngModel)]="this.postavi.naziv"
+                    style="width: 100%;padding: 5px;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" style="border-radius: 15px;"
+                    (click)="postaviPitanje()">Postavi</button>
+            </div>
+        </div>
+    </div>
+</div>

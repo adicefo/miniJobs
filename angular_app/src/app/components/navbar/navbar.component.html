@@ -1,0 +1,63 @@
+<!--Modifikacije se dodaju ovdje-->
+<nav class="navbar">
+  <div class="navDiv" *ngIf="tipKorisnika==''">
+    <span class="znak">miniJob</span>
+    <a class="navContent" href="">Potraznja</a>
+    <a class="navContent" href="">Spremljeni poslovi</a>
+    <a class="navContent" href="">Preporuka za posao</a>
+    <a class="navContent" href="">Chat</a>
+    <button routerLink="login" class="btn btn-outline-success">Login</button>
+    <button routerLink="registracija-menu" class="btn btn-outline-danger" id="registerBtn">Registracija</button>
+  </div>
+
+
+
+  <div class="navDiv" *ngIf="tipKorisnika=='aplikant' || tipKorisnika=='Aplikant'" style="margin-left: 5%;">
+    <span class="znak">miniJob</span>
+    <a class="navContent" href="aplikant">Potraznja</a>
+    <a class="navContent" href="spremljeni-poslovi">Spremljeni poslovi</a>
+    <a class="navContent" href="preporuka">Preporuka za posao</a>
+    <a class="navContent" href="chat">Chat</a>
+    <!--Radi velicine-->
+    <div class="user-menu-wrapper">
+      <!-- User Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle"
+           viewBox="0 0 16 16" (click)="onClickUserIcon()">
+        <path d=" M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+      </svg>
+
+      <!-- User Menu Component (Replace 'app-user-menu' with your actual component selector) -->
+      <app-usermenu [menuOpen]="menuOpen"></app-usermenu>
+    </div>
+  </div>
+
+
+
+  <div class="navDiv" *ngIf="tipKorisnika=='poslodavac' || tipKorisnika=='Poslodavac'" style="margin-left: 7%;">
+    <span class="znak" style="margin-left: 15%;">miniJob</span>
+    <a class="navContent" href="poslodavac" style="margin-left: 7%;">Pretraga</a>
+    <a class="navContent" href="osnovne-informacije" style="margin-left: 7%;">Postavi posao</a>
+    <a class="navContent" href="vasiPoslovi" style="margin-left: 7%;">Vaši poslovi</a>
+    <a class="navContent" href="chat" style="margin-left: 7%;">Chat</a>
+    <!--Radi velicine-->
+    <div class="user-menu-wrapper">
+      <!-- User Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-circle"
+           viewBox="0 0 16 16" (click)="onClickUserIcon()">
+        <path d=" M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+      </svg>
+
+      <!-- User Menu Component (Replace 'app-user-menu' with your actual component selector) -->
+      <app-usermenu [menuOpen]="menuOpen"></app-usermenu>
+    </div>
+  </div>
+
+
+</nav>
+<!--<app-usermenu [menuOpen]="menuOpen" [tipKorisnika]="tipKorisnika" ]></app-usermenu> -->
+
+

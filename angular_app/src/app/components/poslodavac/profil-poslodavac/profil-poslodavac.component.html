@@ -1,0 +1,175 @@
+<app-navbar [tipKorisnika]="tipKorisnika"></app-navbar>
+
+<div class="outer">
+  <div class="container">
+
+
+
+    <div class="row">
+      <!-- user div -->
+      <div class="user">
+        <div class="slika-podaci">
+          <div class="slikaDiv">
+            <label class="profile-img">
+
+              <img [src]="userImage" >
+            </label>
+          </div>
+          <div class="userPodaci">
+            <p id="userName">{{usernameProfil}}</p>
+            <div class="lokacijaDiv" *ngIf="user.opstina!=null">
+              <p class="fa fa-map-marker"></p>
+              <p id="lokacija">{{user.opstina}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="ocjena" *ngIf="user.prosjecnaocjena>0">
+          <p>Ocjena: </p>
+          <div class="prosjecnaOcjena">
+
+            <p id="ocjena">{{user.prosjecnaocjena}}</p>
+          </div>
+
+        </div>
+        <div class="kontakt">
+          <div class="broj" (click)="prikaziBroj()" *ngIf="user.brojTelefona!='' && user.brojTelefona!=null ">
+            <small class="fa fa fa-phone"></small>
+            <p>Broj</p>
+          </div>
+
+
+
+        </div>
+        <div class="brojTelefona" *ngIf="user.brojTelefona!=''">
+          <p id="p-brojTelefona">{{user.brojTelefona}}</p>
+        </div>
+        <div class="ponuda" *ngIf="user.ponuda!=null">
+          <p>Naša ponuda:</p>
+          <div id="div-ponuda">
+            <p id="p-ponuda">{{user.ponuda}}</p>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- aktivni,zavrseni,dojmovi -->
+      <div class="poslovi">
+        <app-navbar-profil></app-navbar-profil>
+        <!-- aktivni poslovi-->
+        <div>
+          <p class="p-Nema"
+            *ngIf="opcija==='aktivni' && aktivniPosloviList.length==0 && tipKorisnikaProfil=='Poslodavac'">{{userName}}
+            trenutno nema aktivnih poslova.</p>
+          <p class="p-Nema" *ngIf="opcija==='zavrseni' && zavrseniPosloviList.length==0">{{userName}} trenutno nema
+            završen posao.</p>
+        </div>
+        <div class="brojAKtivnihPoslova" *ngIf="ProvjeriContent()">
+          <p *ngIf="opcija==='aktivni' && aktivniPosloviList.length!=0 && tipKorisnikaProfil=='Poslodavac'"
+            class="brAktivnihPoslova">Aktivni poslovi [{{aktivniPosloviList.length}}]</p>
+          <p *ngIf="opcija==='zavrseni' && zavrseniPosloviList.length!=0" class="brAktivnihPoslova">Završeni poslovi
+            [{{zavrseniPosloviList.length}}]</p>
+        </div>
+
+        <div class="aktivniPoslovi" *ngIf="ProvjeriContent()==1 ||ProvjeriContent()==2">
+
+          <div class="list-group">
+            <div class="posao" *ngFor="let posao of  this.odredeniPosloviCopy">
+              <p id="posao-naziv">{{posao.naziv}}</p>
+              <div class="posao-lokacija">
+                <p id="lokacija-icon" class="fa fa-map-marker"></p>
+                <p id="lokacija-posla">{{posao.opstina}}</p>
+              </div>
+              <div class="posao-placanje">
+                <p id="placanje-icon" class="fa fa-money"></p>
+                <p id="placanje-iznos" *ngIf="posao.cijena!==-2">{{posao.cijena}}</p>
+                <p id="placanje-tip">{{posaonacinPlacanja(posao)}}</p>
+              </div>
+              <button id="btnPogledaj" (click)="pogledajPosao(posao)"> Pogledaj posao</button>
+
+            </div>
+          </div>
+        </div>
+        <div class="dojmovi" *ngIf="ProvjeriContent()==3">
+          <div>
+            <p class="p-Nema" *ngIf=" dojmoviList.length==0">{{userName}} trenutno nije ocjenjen/a od strane drugih
+              korisnika.</p>
+          </div>
+          <div class="dojmoviGroup">
+            <div class="dojam" *ngFor="let dojam of this.dojmoviList">
+              <div class="korisnikSlika">
+                <label class="user-img">
+                  <img [src]="dojamUserSlika">
+                </label>
+
+              </div>
+              <div class="sadrzaj">
+                <div class="usernameDatum">
+                  <p class="username">{{dojam.username}}</p>
+                  <p class="datumKreiranja">{{dojam.datumKreiranja}}</p>
+                </div>
+                <div class="komentar">
+                  <p>{{dojam.komentar}}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="profile" *ngIf="ProvjeriContent()==4">
+          <div>
+            <p class="p-Nema" *ngIf=" ProvjeriInformacije()">{{userName}} trenutno nema dodatnih informacija.</p>
+          </div>
+
+          <div class="profile-content" *ngIf="!ProvjeriInformacije()">
+            <div class="profile-section" *ngIf="user.opis!=null && user.opis!='' ">
+              <h3>Opis</h3>
+              <p class="description">{{user.opis }}</p>
+            </div>
+            <div class="profile-section" *ngIf="user.posaoTip!=null && user.posaoTip!='' ">
+              <h3>Usluge koje nudim</h3>
+              <p>{{user.posaoTip }}</p>
+            </div>
+            <div class="profile-section" *ngIf="user.iskustvo !=null && user.iskustvo !='' ">
+              <h3>Iskustvo</h3>
+              <p>{{user.iskustvo }}</p>
+            </div>
+            <div class="profile-section" *ngIf="user.nivoObrazovanja  !=null && user.nivoObrazovanja  !='' ">
+              <h3>Obrazovanje</h3>
+              <p>{{user.nivoObrazovanja }}</p>
+            </div>
+            <div class="profile-section" *ngIf="user.prijedlogSatince  !=null && user.prijedlogSatince  !='' ">
+              <h3>Satnica</h3>
+              <p>{{user.prijedlogSatince }} KM</p>
+            </div>
+          </div>
+        </div>
+        <!-- navigacija za poslove-->
+        <div class="pager" *ngIf="odredeniPoslovi.length>6">
+          <button id="nazad" (click)="nazad()" [disabled]="trenutnaStranica===1"></button>
+          <div class="stranice">
+            <button id="brojStranice" *ngFor="let br of stranice;let i = index " [disabled]="trenutnaStranica-1===i"
+              [style.color]="trenutnaStranica-1===i ? 'white' : 'black'" [style.background-color]="
+           trenutnaStranica-1===i  && isMouseOverRaspored[i] ? '#ae01a0' :
+           trenutnaStranica-1===i  && !isMouseOverRaspored[i] ? '#d70dc6' :
+           trenutnaStranica-1!==i  && isMouseOverRaspored[i] ? '#f8a8ef' :
+           'white'" (mouseenter)="isMouseOverRaspored[i] = true" (mouseleave)="isMouseOverRaspored[i] = false"
+              (click)="pomjeri(i+1)">
+              {{br}}</button>
+
+          </div>
+          <button id="naprijed" [disabled]="trenutnaStranica===brojStranica+1" (click)="naprijed()">></button>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+<app-posao-view [posao]="odabraniPosao" [isModalOpen]="isModalOpen" (modalClosed)="handleModalClosed()"></app-posao-view>
+<app-footer [top]="170"></app-footer>

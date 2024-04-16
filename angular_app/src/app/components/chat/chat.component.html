@@ -1,0 +1,30 @@
+<app-navbar [tipKorisnika]="tipKorisnika"></app-navbar>
+
+<div class="chat-container">
+    <div class="contacts">
+        <div class="contact " (click)="this.pitanjeThreadCounter=x.id" *ngFor="let x of pitanjeThread">
+            <span class="contact-name">{{x.posao.naziv}}</span>
+            <span class="contact-content" style="font-size: small;">{{x.naziv}}</span>
+        </div>
+        <!-- Add more contacts here -->
+    </div>
+
+
+    <div class="chat">
+        <div class="message" *ngFor="let o of getFiltriranoPoruke()">
+            <p class="message-timestamp">{{o.datum_kreiranja}}</p>
+            <p class="message-content">{{o.sadrzaj}}</p>
+            <p class="message-username">{{o.korisnickiNalog.korisnickoIme}}</p>
+        </div>
+
+        <!-- Add more messages here -->
+
+        <div class="user-input">
+            <input type="text" placeholder="Upišite poruku..." [(ngModel)]="this.sadrzaj">
+            <button class="btn-success" style="    background-color: rgb(174, 1, 160, 0.8);color: white;"
+                (click)="posaljiPoruku()">Pošalji</button>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

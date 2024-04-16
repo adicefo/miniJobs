@@ -1,0 +1,16 @@
+<div class="poslovi-navbar">
+  <div class="navbar-child">
+    <div  class="divAktivni" (click)="Odabrani('aktivni')" (mouseover)="onMouseOver('aktivni')" (mouseout)="onMouseOut('aktivni')">
+      <a class="nlabel" [style.color]="labelColorAktivni">{{naslov}}</a>
+      <div class="crtaBold" [style.backgroundColor]="backgroundColorAktivni"></div>
+    </div>
+    <div class="divZavrseni"  (click)="Odabrani('zavrseni')" (mouseover)="onMouseOver('zavrseni')" (mouseout)="onMouseOut('zavrseni')">
+      <a class="nlabel-inline" [style.color]="labelColorZavrseni" >Završeni poslovi</a>
+      <div class="crtaBold" [style.backgroundColor]="backgroundColorZavrseni"></div>
+    </div>
+    <div class="divDojmovi"  (click)="Odabrani('dojmovi')" (mouseover)="onMouseOver('dojmovi')" (mouseout)="onMouseOut('dojmovi')">
+      <a class="nlabel-inline" [style.color]="labelColorDojmovi">Utisci</a>
+      <div class="crtaBold" [style.backgroundColor]="backgroundColorDojmovi"></div>
+    </div>
+  </div>
+</div>

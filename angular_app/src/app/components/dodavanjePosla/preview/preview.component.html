@@ -1,0 +1,55 @@
+<app-navbar  [tipKorisnika]="tipKorisnika"></app-navbar>
+<div class="outer">
+<div class="step-navigation">
+  <div class="step-circle completed"><span class="fa fa-check"></span></div>
+  <div class="step-line1"></div>
+  <div class="step-circle completed"><span class="fa fa-check"> </span></div>
+  <div class="step-line1"></div>
+  <div class="step-circle completed"><span class="fa fa-check"></span></div>
+  <div class="step-line1"></div>
+  <div class="step-circle active"><span></span></div>
+</div>
+
+<div class="content">
+<div class="unutrasnji">
+  <div class="head">
+    <div class="h-contetnt">
+      <p class="preview">Ovo je preview onoga što će ljudi možda vidjeti</p>
+      <p class="preview-desc">Tvoj postavljen posao će možda izgledati malo drugaćije kada se postavi</p>
+
+    </div>
+    <div class="basic-img">
+      <img class="basic-logo" src="{{logo}}" alt="Basic">
+    </div>
+  </div>
+  <div class="content">
+    <div class="naslov">
+      <p class="p-naslov">{{posaoPreviewService.naziv}}</p>
+      <p>{{posaoPreviewService.poslodavac}} - {{posaoPreviewService.opstina}}
+        {{posaoPreviewService.adresa !== ''?',':""}} {{posaoPreviewService.adresa}} </p>
+    </div>
+    <div class="opis">
+      <p>Opis posla:</p>
+      <div [style.margin-left.px]="10" [innerHTML]="posaoPreviewService.opis"></div>
+
+      <p >Tip posla:  {{posaoPreviewService.posaoTip}}</p>
+      <p>Plaćanje: {{posaoPreviewService.cijena!==-2?posaoPreviewService.cijena:""}} {{posaoPreviewService.cijena!==-2?"KM":""}} {{posaoPreviewService.nacinPlacanja}} </p>
+      <p>Raspored posla: </p>
+      <p  [style.margin-left.px]="10">{{posaoPreviewService.radnoVrijeme}}</p>
+
+      <p *ngIf="posaoPreviewService.dodatnoPlacanje.length!==0">Dodatno plaća:</p>
+      <p [style.margin-left.px]="10" >{{posaoPreviewService.dodatnoPlacanje}}</p>
+    </div>
+  </div>
+</div>
+  <div class="nastavi-nazad">
+    <div class="nazad">
+      <button (click)="goBack()" class="btn-nazad">< nazad</button>
+    </div>
+    <div class="nastavi">
+      <button class="btn-nastavi" (click)="PostaviPosao()">Postavi posao</button>
+    </div>
+  </div>
+</div>
+</div>
+<app-footer [top]="100" ></app-footer>

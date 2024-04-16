@@ -1,0 +1,89 @@
+<app-navbar tipKorisnika="aplikant"></app-navbar>
+
+<div class="content" [ngStyle]="novaOcjena!=null?{'opacity':'0.5','background-color':'transparent'}:{'opacity':'1'}">
+    <div class="tekstDiv">
+        <p>VAŠI OGLASI</p>
+        <p>Aplicirajte na posao već sada!</p>
+    </div>
+    <button style="font-size:250%;position:absolute;left:85%;top:15%; background-color: transparent; border: none;"
+        (click)="pripremiOcjenu()" [disabled]="podaciOcjena==null"><i class="bi bi-bell"></i></button>
+
+    <div class="card">
+        <div class="card-body" *ngFor="let obj of spremljeniPoslovi">
+            <button type="button" class="btn-close" aria-label="Close"
+                style="display: inline; font-size: 130%;margin-left:97%;margin-top: -1%;"
+                (click)="obrisi(obj.id)"></button>
+            <h5 class="card-title">{{obj.posao.naziv}}</h5>
+            <p class="card-text" [innerHTML]="obj.posao.opis"></p>
+            <button type="button" class="btn btn-success" style="border-radius: 15px;width: 15%;margin-left: 85%;"
+                (click)="apliciraj(obj)">Apliciraj</button>
+        </div>
+    </div>
+    <div class="card" style="position: absolute;top:90%;left: 25%;;">
+        <div class="card-body" *ngFor="let obj of apliciraniPoslovi">
+            <h5 class="card-title">{{obj.posao.naziv}}</h5>
+            <p class="card-text"[innerHTML]="obj.posao.opis"></p>
+            <button type="button" class="btn btn-btn btn-danger"
+                style="border-radius: 15px;width: 15%;margin-left: 85%;"
+                (click)="obrisiAplicirani(obj.id)">Obrisi</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" *ngIf="novaOcjena!=null" style="display: block; z-index: 0;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ratingModalLabel">Ocijenite</h5>
+                <button type="button" class="btn-close" (click)="novaOcjena=null"></button>
+            </div>
+            <div class="modal-body">
+                <p class="pitanje">Kako ste zadovoljni sa poslovanjem korisnika?</p>
+
+                <div class="rating-container">
+
+                    <div class="rating-item"
+                        [style]="novaOcjena.ocjena==1?'color: white; background-color: #c50eb7;' : ''"
+                        (click)="novaOcjena.ocjena=1">1</div>
+                    <div class="rating-item"
+                        [style]="novaOcjena.ocjena==2?'color: white; background-color: #c50eb7;' : ''"
+                        (click)="novaOcjena.ocjena=2">2</div>
+                    <div class="rating-item"
+                        [style]="novaOcjena.ocjena==3?'color: white; background-color: #c50eb7;' : ''"
+                        (click)="novaOcjena.ocjena=3">3</div>
+                    <div class="rating-item"
+                        [style]="novaOcjena.ocjena==4?'color: white; background-color: #c50eb7;' : ''"
+                        (click)="novaOcjena.ocjena=4">4</div>
+                    <div class="rating-item"
+                        [style]="novaOcjena.ocjena==5?'color: white; background-color: #c50eb7;' : ''"
+                        (click)="novaOcjena.ocjena=5">5</div>
+
+                </div>
+                <div class="rateText">
+                    <p>Nisam zadovoljan</p>
+                    <p>Jako zadovoljan</p>
+                </div>
+                <div>
+                    <small *ngIf="novaOcjena.ocjena==0" class="errObavezno">Molimo vas ocijenite
+                        korisnika.</small>
+                </div>
+                <div class="form-group">
+                    <p class="komentar">Komentar:</p>
+                    <textarea class="form-control" rows="3" [(ngModel)]="novaOcjena.komentar"></textarea>
+                    <div>
+                        <small *ngIf="novaOcjena.komentar==''" class="errObavezno">Molimo vas dodajte
+                            komentar.</small>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btnOcjeni" data-bs-dismiss="modal"
+                    (click)="novaOcjena=null">Otkazi</button>
+                <button type="button" class="btnOtkaz" (click)=" ocijeni()">Ocijeni</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,331 @@
+<app-navbar [tipKorisnika]="tipKorisnika"></app-navbar>
+<div class="noJobs" *ngIf="poslovi.length === 0">
+  <p>Niste dodali nijedan posao.</p>
+  <button type="button" class="btn btn-primary" (click)="dodajPosao()">Dodajte svoj prvi posao</button>
+</div>
+<div class="poslovi" *ngIf="poslovi.length>0" [style.margin-bottom.%]="26" >
+  <table class="center-table">
+    <thead>
+    <tr>
+      <th>Naslov posla</th>
+      <th>Apliciranje moguće do</th>
+      <th>Broj apliciranja</th>
+      <th>Status</th>
+      <th>Pogledaj aplikante</th>
+      <th>Uredi/obriši</th>
+      <th>Završi posao</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let job of poslovi">
+      <td>{{ job.naziv }}</td>
+      <td>{{ uredivanjeDatuma(job.deadline) }}</td>
+      <td>{{ job.brojApliciranja }}</td>
+      <td>{{ job.status }}</td>
+      <td><button (click)="getAplikanteByPosaoId(job.id,0,'pregled')" [disabled]="job.brojApliciranja==0 || job.status=='Završen'" [class.disabled-button]="job.brojApliciranja==0 || job.status=='Završen'">Pogledaj</button></td>
+      <td><button class="btn-uredi" (click)="Uredi(job)" [disabled]=" job.status=='Završen'" [class.disabled-button]=" job.status=='Završen'">Uredi/obriši</button></td>
+      <td><button class="btn-zavrsi" (click)="getAplikanteByPosaoId(job.id,job.brojRadnika,'ocjenjivanje')" [disabled]="job.brojApliciranja==0 || job.status=='Završen'" [class.disabled-button]="job.brojApliciranja==0 || job.status=='Završen'">Završi</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+<!--aplikanti-->
+<div class="modal" tabindex="-1" *ngIf="aplikanti.length>0" style="display: block;" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="m-header">
+                <span
+                  style="font-size: 150%; font-weight: bolder; margin-left: -35%; color:rgb(174, 1, 160);">miniJob</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="aplikanti=[];ucitajPoslove()" style=" display: inline; font-size: 150%;"></button>
+        <!--*ngIf="opcija==='ocjenjivanje'" -->
+        <p class="uredi" [style]="opcija==='ocjenjivanje'?{'margin-left':'-28%'}:''">{{aplikantiNaslov}}</p>
+      </div>
+      <p>Da biste završili posao potrebno je da ocijenite i dodate komentar za aplikanata/e koji su Vam odradili posao.</p>
+      <div class="modal-body">
+
+
+        <div class="outer">
+          <div class="container">
+            <div class="aplikanti"
+                 *ngIf="tipKorisnika==='poslodavac' || tipKorisnika==='Poslodavac'">
+              <div class="dojmoviGroup">
+                <div class="aplikant" *ngFor="let aplikant of this.aplikanti"  (click)="  opcija!=='ocjenjivanje'? goToProfil(aplikant.username) : null" >
+                  <div class="korisnikSlika"  (click)="opcija==='ocjenjivanje'?goToProfil(aplikant.username):null"  >
+                    <label  class="user-img">
+                      <img  [src]="userSlika" >
+                    </label>
+
+                  </div>
+                  <div class="sadrzaj">
+                    <div class="usernameDatum">
+                      <p class="username">{{aplikant.username}}</p>
+                      <div class="brojZavrsenih">
+                        <p id="brZPoslova">{{aplikant.brojZavrsenihPoslova}}</p>
+                      </div>
+                    </div>
+                    <div class="lokacijaDiv">
+                      <div class="lokacija">
+                        <p class="fa fa-map-marker"></p>
+                        <p id="lokacija"> {{aplikant.opstina}}</p>
+
+
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="izaberi"  *ngIf="  opcija==='ocjenjivanje'">
+                    <button class="btn-izaberi" *ngIf="!jelOcjenjen(aplikant.username)" (click)=" odabraniAplikant=aplikant" [disabled]="jelOcjenjen(aplikant.username)">Izaberi</button>
+                    <p class="p-ocjenjen" *ngIf="jelOcjenjen(aplikant.username)">Ocjenjen</p>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!--body-->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- uređivanje posla-->
+<div class="modal" tabindex="-1" *ngIf="odabraniPosao!==null" style="display: block;" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="m-header">
+                <span
+                  style="font-size: 150%; font-weight: bolder; margin-left: -35%; color:rgb(174, 1, 160);">miniJob</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="odabraniPosao=null" style=" display: inline; font-size: 150%;"></button>
+        <p class="uredi">Uredi posao</p>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="forma">
+          <div  class="naziv_posla" >
+            <label class="label-naziv-posla">Naziv posla</label>
+            <div class="input-field" >
+              <input formControlName="naziv" [class.error]="checkField('naziv',forma)" type="text"  >
+            </div>
+            <div>
+              <small *ngIf="checkField('naziv',forma)" class="errObavezno">Naziv posla je obavezan</small>
+            </div>
+          </div>
+
+
+          <div id="child-div" class="adresa-opcina">
+            <label class="label-adresa-posla">Adresa</label>
+            <div  class="input-field" >
+              <input formControlName="adresa"  type="text"  >
+            </div>
+
+
+
+
+            <label class="label-opcina-posla">Lokacija</label>
+            <div  class="tipoviPoslova">
+              <input formControlName="lokacija" [class.error]="checkField('lokacija',forma)"  (input)="onInputChange('opstine')" >
+              <div>
+                <small *ngIf="checkField('lokacija',forma)" class="errObavezno">Lokacija je obavezna</small>
+              </div>
+              <ul *ngIf="filtiraneLokacije.length>0" [style.height]="filtiraneLokacije.length>=5?'125px':'auto'">
+                <li *ngFor="let l of filtiraneLokacije" (click)="onLocationSelected(l)" [value]="l.id">{{ l.opis }}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tip_posla">
+            <label class="label-tip-posla">Tip posla</label>
+            <p class="p-tip">Unesite koji vam tip radnika treba, ako ne znate samo unesite "radnik"</p>
+            <div  class="tipoviPoslova">
+              <input formControlName="posaoTip" [class.error]="checkField('posaoTip',forma)" (input)="onInputChange('tipPosla')"  placeholder="Tip posla">
+              <div>
+                <small *ngIf="checkField('posaoTip',forma)" class="errObavezno">Tip posla je obavezan</small>
+              </div>
+              <ul *ngIf="filteredJobTitles.length>0" [style.height]="filteredJobTitles.length>=5?'125px':'auto'">
+                <li *ngFor="let pt of filteredJobTitles" (click)="onTitleSelected(pt)">{{ pt.naziv }}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-raspored_posla">
+            <label class="label-raspored-posla">Raspored posla</label>
+            <div class="raspored-posla">
+              <div>
+                <button
+                  *ngFor="let r of rasporedi"
+                  [style.color]="selectedButtonRasporedPoslova.includes(+r.id) ? 'white' : 'black'"
+                  [style.background-color]="
+           selectedButtonRasporedPoslova.includes(+r.id)  && isMouseOverRaspored[+r.id] ? '#ae01a0' :
+           selectedButtonRasporedPoslova.includes(+r.id) && !isMouseOverRaspored[+r.id] ? '#d70dc6' :
+           selectedButtonRasporedPoslova.includes(+r.id)  && isMouseOverRaspored[+r.id] ? '#f8a8ef' :
+           'white'"
+
+                  (mouseenter)="isMouseOverRaspored[+r.id] = true"
+                  (mouseleave)="isMouseOverRaspored[+r.id] = false"
+                  (click)="provjeriButton(r,'raspored')">
+                  <span class="{{ getIkonicaClass(+r.id,'raspored') }}" aria-hidden="true"></span> {{ r.opis }}
+                </button>
+
+              </div>
+            </div>
+            <div>
+              <small *ngIf="selectedButtonRasporedPoslova.length===0" class="errObavezno">Raspored posla je obavezan</small>
+            </div>
+          </div>
+
+          <div class="adresa-opcina">
+            <div class="dropmenu" >
+              <label class="label-brojLjudi-posla">Koliko vam je potrebno ljudi za ovaj posao?</label>
+              <div  class="brojLjudi" >
+                <select formControlName="brojLjudi"  id="p">
+                  <option *ngFor="let p of brojLjudi" [value]="p">{{p}}</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <div  class="opis_posla" >
+            <label class="label-opis-posla">Opis posla</label>
+            <p class="p-opis">
+              Opišite odgovornosti ovog posla, potrebno radno iskustvo, vještine ili obrazovanje </p>
+            <div class="opis">
+              <ckeditor formControlName="opis"></ckeditor>
+            </div>
+            <div>
+              <small *ngIf="checkField('opis',forma)" class="errObavezno">Opis posla je obavezan</small>
+            </div>
+          </div>
+
+
+          <div class="placanje"
+               [style.height]="forma.get('nacinPlacanja')?.value!=='Po dogovoru'?225:110  " >
+            <label class="label-vrijeme-posla">Izaberite način plaćanja</label>
+            <div class="placanje-posla">
+              <div>
+                <button
+                  *ngFor="let r of nacinPlacanja"
+                  [style.color]="selectedBtnNacinPlacanja === +r.id ? 'white' : 'black'"
+
+                  [style.background-color]="
+           selectedBtnNacinPlacanja === +r.id && isMouseOverNacinPlacanja[+r.id] ? '#ae01a0' :
+           selectedBtnNacinPlacanja === +r.id && !isMouseOverNacinPlacanja[+r.id] ? '#d70dc6' :
+           selectedBtnNacinPlacanja !== +r.id && isMouseOverNacinPlacanja[+r.id] ? '#f8a8ef' :
+           'white'"
+
+                  (mouseenter)="isMouseOverNacinPlacanja[+r.id] = true"
+                  (mouseleave)="isMouseOverNacinPlacanja[+r.id] = false"
+                  (click)=" provjeriButtonNacinPlacanja(r)">
+                  <span class="{{ selectedBtnNacinPlacanja === +r.id?'fa fa-check':'fa fa-plus' }}" aria-hidden="true"></span> {{ r.opis}}
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <div *ngIf="selectedBtnNacinPlacanja!==btnPoDogovoru_id">
+              <label class="label-cijena">Cijena</label>
+              <div class="input-field" >
+                <input formControlName="cijena"  type="number" placeholder="Cijena">
+              </div>
+              <div>
+                <small *ngIf="checkField('cijena',forma) " class="errObavezno">Potrebno je unijeti cijenu</small>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="dodatno">
+            <label class="label-dodatno">Da li plaćate?</label>
+            <div>
+              <div class="dodatnoBtns">
+                <button
+                  *ngFor="let r of dodatnoPlacanje"
+                  [style.color]="selectedButtonDodatno.includes(+r.id) ? 'white' : 'black'"
+                  [style.background-color]="selectedButtonDodatno.includes(+r.id) && isMouseOverDodatno[+r.id] ? '#ae01a0' :
+          selectedButtonDodatno.includes(+r.id) && !isMouseOverDodatno[+r.id] ? '#d70dc6' :
+          !selectedButtonDodatno.includes(+r.id) && isMouseOverDodatno[+r.id] ? '#f8a8ef' :
+          'white'"
+                  (mouseenter)="isMouseOverDodatno[+r.id] = true"
+                  (mouseleave)="isMouseOverDodatno[+r.id] = false"
+                  (click)="provjeriButton(r,'dodatno placanje')">
+                  <span class="{{ getIkonicaClass(+r.id,'dodatno placanje') }}" aria-hidden="true"></span> {{ r.opis }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div >
+            <label >Da li želite da produžite vrijeme za apliciranje? </label>
+            <p class="p-opis">
+              Unesite broj dana za koji želite produžiti </p>
+            <div  class="input-field-vrijeme" >
+              <input class="vrijeme" formControlName="vrijeme"  type="number"  >
+
+            </div>
+          </div>
+
+        </form>
+
+        <div class="obrisi-spremi">
+
+          <button  class="btn-spremi" (click)="spremi()">Spremi promjene</button>
+          <button  class="btn-obrisi" (click)="obrisi()">Obriši posao</button>
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ocjena i komentar-->
+<div class="modal"  tabindex="-1" *ngIf="odabraniAplikant" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ratingModalLabel">Ocijenite {{odabraniAplikant.username}}</h5>
+        <button type="button" class="btn-close" (click)="odabraniAplikant=null"></button>
+      </div>
+      <div class="modal-body">
+        <p class="pitanje">Kako ste zadovoljni sa poslovanjem korisnika?</p>
+        <form [formGroup]="ocjenaKomentar">
+          <div class="rating-container">
+
+            <div class="rating-item" [style]="ocjena==1?'color: white; background-color: #c50eb7;' : ''" (click)="selectRating(1)">1</div>
+            <div class="rating-item" [style]="ocjena==2?'color: white; background-color: #c50eb7;' : ''" (click)="selectRating(2)">2</div>
+            <div class="rating-item" [style]="ocjena==3?'color: white; background-color: #c50eb7;' : ''"  (click)="selectRating(3)">3</div>
+            <div class="rating-item" [style]="ocjena==4?'color: white; background-color: #c50eb7;' : ''"  (click)="selectRating(4)">4</div>
+            <div class="rating-item" [style]="ocjena==5?'color: white; background-color: #c50eb7;' : ''"  (click)="selectRating(5)">5</div>
+
+          </div>
+          <div class="rateText">
+            <p>Nisam zadovoljan</p>
+            <p>Jako zadovoljan</p>
+          </div>
+          <div>
+            <small *ngIf="checkField('ocjena',ocjenaKomentar) " class="errObavezno">Molimo vas ocijenite korisnika.</small>
+          </div>
+          <div class="form-group">
+            <p class="komentar">Komentar:</p>
+            <textarea class="form-control" formControlName="komentar" [class.error]="checkField('komentar',ocjenaKomentar)" rows="3"></textarea>
+            <div>
+              <small *ngIf="checkField('komentar',ocjenaKomentar) " class="errObavezno">Molimo vas dodajte komentar.</small>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Otkazi</button>
+        <button type="button" class="btn btn-primary" (click)=" ocijeni()" >Ocijeni</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer [top]="170" ></app-footer>

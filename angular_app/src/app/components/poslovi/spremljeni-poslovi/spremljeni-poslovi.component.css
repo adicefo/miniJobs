@@ -1,0 +1,265 @@
+.tekstDiv {
+  position: absolute;
+  top: 25%;
+  left: 40%;
+}
+
+.tekstDiv p {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.tekstDiv p:first-of-type {
+  margin-left: 33%;
+  margin-bottom: -1%;
+  color: rgb(174, 1, 160);
+  font-size: medium;
+}
+
+
+.card {
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  width: 50%;
+
+  max-height: 50%;
+  overflow-y: scroll;
+}
+
+h5 {
+  margin-top: -2%;
+  margin-left: 3%;
+  font-size: 150%;
+}
+
+.card-text {
+  font-size: 110%;
+  margin-left: 3%;
+}
+
+
+
+/*ocjena*/
+.poslovi {
+  width: 100%;
+  margin-top: 7%;
+
+}
+
+.center-table th,
+.center-table td {
+  text-align: center;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  font-size: 16px;
+  margin-left: 5%;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.btn-uredi {
+
+  font-weight: bold;
+  border-radius: 15px;
+  color: white;
+  background-color: #d70dc6;
+  border: none;
+  padding: 10px;
+  transition: 1s;
+}
+
+.btn-uredi:hover {
+  background-color: #ae01a0;
+}
+
+.disabled-button {
+  pointer-events: none;
+  /* Disable pointer events */
+  opacity: 0.6;
+  /* Apply a lower opacity to indicate disabled state */
+  /* Add any other styles you want to apply to the disabled button */
+}
+
+/* modal */
+
+
+
+.modal-content {
+  width: 190%;
+  height: 190%;
+  border-radius: 1%;
+  margin-top: 5%;
+  margin-left: -35%
+}
+
+/* header */
+.m-header {
+  position: relative;
+  left: 40%;
+  margin-top: 2%;
+}
+
+.btn-close {
+  margin-left: 75%;
+}
+
+.uredi {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 2%;
+
+}
+
+/* forma */
+.btnOcjeni,
+.btnOtkaz {
+  padding: 10px;
+  margin: 5px 5px 5px 15px;
+  color: black;
+  font-weight: bold;
+
+  border-radius: 15px;
+  font-size: 12px;
+  flex-grow: 1;
+
+  border-color: white;
+  transition: 1s;
+  background-color: white;
+
+}
+
+.btnOcjeni:hover,
+.btnOtkaz:hover {
+  background-color: #f8a8ef;
+  color: white;
+}
+
+
+.btn-obrisi {
+  background-color: red;
+  transition: 1s;
+  color: white;
+
+}
+
+.btn-obrisi:hover {
+  background-color: #b90b0b;
+
+}
+
+
+.btn-spremi,
+.btn-zavrsi {
+  font-weight: bold;
+  border-radius: 15px;
+  margin-left: 30px;
+  color: white;
+  background-color: #d70dc6;
+  margin-right: 30px;
+  border: none;
+  padding: 10px;
+
+  transition: 1s;
+}
+
+.btn-zavrsi {
+  background-color: green;
+}
+
+.btn-spremi:hover {
+  background-color: #ae01a0;
+}
+
+
+input.error {
+  border: 1px solid red;
+  color: red;
+}
+
+textarea.error {
+  border: 1px solid red;
+  color: red;
+}
+
+.errObavezno {
+  color: red;
+  margin-left: 10px;
+}
+
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.rating-item {
+  width: 60px;
+  height: 40px;
+  background-color: #e86ad9;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.rating-item:hover {
+  background-color: #c50eb7;
+  color: white;
+}
+
+.rateText {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40.8%;
+  margin-left: 28%;
+}
+
+.rateText p {
+  color: #bebebe;
+  font-size: 12px;
+
+}
+
+.rating-number {
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.komentar,
+.pitanje {
+  margin-left: 0%;
+}
+
+.p-ocjenjen {
+  margin-top: 20%;
+
+  color: #03f803;
+  font-weight: bold;
+}
+
+.izaberi {
+  margin-right: 5%;
+}

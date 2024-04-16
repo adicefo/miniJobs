@@ -1,0 +1,81 @@
+<app-navbar *ngIf="svrha==='pristup podacima'" [tipKorisnika]="tipKorisnika"></app-navbar>
+
+
+
+<div class="outer" [style]="svrha==='pristup podacima'?{'height':'80vh'}:{'height':'120vh','margin-top':'-10%'}" >
+  <div class="container">
+    <div class="navbar" *ngIf="svrha==='pristup podacima'" >
+      <div class="navbar-child">
+        <div class="divProfil" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+          <a class="nlabel-inline" (click)="goToOsnovniPodaci()"   [style.color]="labelColor" href="osnovniPodaci" >Osnovni podaci</a>
+          <div class="crtaBold"  [style.backgroundColor]="backgroundColor" ></div>
+        </div>
+        <div class="divPodaci" >
+          <a class="nlabel-inline" [style]="{ color: '#d70dc6'}">Pristup podacima</a>
+          <div class="crtaBold"[style]="{ backgroundColor: '#d70dc6'}" ></div>
+        </div>
+
+      </div>
+      <button id="btnOdjaviSe" (click)="router.navigate(['login'])" >Odjavi se</button>
+    </div>
+    <div class="row"  [style]="svrha==='pristup podacima'?{ 'box-shadow':'5px 0px 5px 0px rgba(50,50,50,.75)'}:{ 'box-shadow':'none','margin-left':'5%'}" >
+
+      <div class="panelForma"  [style]="svrha==='pristup podacima'?{ 'margin-top':'0'}:{ 'margin-top':'35%', 'box-shadow':'5px 0px 5px 0px rgba(50,50,50,.75)'}">
+        <div class="panel-heading">
+          <h3 class="pt-3 font-weight-bold">Nova lozinka</h3>
+        </div>
+        <div class="panel-body p-3">
+          <form [formGroup]="forma">
+
+            <div class="form-group p-3">
+              <div class="input-field" [class.success]="!checkLozinkaPattern() && !isEmpty()"  [class.error]="checkField('lozinka') || checkPoljeLozinka()!=='ne'">
+                <span class="fa fa-lock p-2"></span>
+                <input formControlName="lozinka" (input)="provjeriPattern()" type="password" placeholder="Lozinka">
+              </div>
+              <span *ngIf="!checkLozinkaPattern() && !isEmpty()" class="fa fa-check-circle p-2"> </span>
+            </div>
+            <small *ngIf="checkField('lozinka')" class="text-danger">Lozinka je obavezna</small>
+
+
+            <div class="form-group p-3">
+              <div class="input-field" [class.success]="jelSePodudaraju() && !isEmpty()" [class.error]="checkField('potvrdiLozinku')">
+                <span class="fa fa-key p-2"></span>
+                <input formControlName="potvrdiLozinku" type="password" placeholder="Potvrdi lozinku">
+              </div>
+              <span *ngIf="jelSePodudaraju() && !isEmpty()" class="fa fa-check-circle p-2"> </span>
+            </div>
+            <small *ngIf="checkField('potvrdiLozinku')" class="text-danger">Potvrda lozinke je obavezna</small>
+            <small *ngIf="jelSePodudaraju() && !isEmpty()" class="text-success">Lozinke se podudaraju.</small>
+
+
+
+
+
+
+            <button  type="submit" class="btn " (click)="posalji()">Potvrdi</button>
+
+          </form>
+        </div>
+
+
+      </div>
+      <div class="panelP"  [style]="svrha==='pristup podacima'?{ 'margin-top':'0'}:{ 'margin-top':'35%', 'box-shadow':'5px 0px 5px 0px rgba(50,50,50,.75)'}">
+        <p class="naslovP">Lozinka mora da sadrži:</p>
+        <div class="p-d">
+          <p  *ngIf="!sadrziVelikoSlovo">Najmanje 1 veliko slovo (A-Z)</p>
+          <del  *ngIf="sadrziVelikoSlovo" >Najmanje 1 veliko slovo (A-Z)</del>
+          <p *ngIf="!sadrziMaloSlovo" >Najmanje 1 malo slovo (a-z)</p>
+          <del *ngIf="sadrziMaloSlovo" >Najmanje 1 malo slovo (a-z)</del>
+          <p *ngIf="!sadrziBroj" >Najmanje 1 broj  (0-9)</p>
+          <del *ngIf="sadrziBroj" >Najmanje 1 broj  (0-9)</del>
+          <p *ngIf="!sadrziSpecijalniZnak">Najmanje 1 specijalni znak (!, @, #, $, %, ^, &, *)</p>
+          <del *ngIf="sadrziSpecijalniZnak">Najmanje 1 specijalni znak (!, @, #, $, %, ^, &, *)</del>
+          <p *ngIf="!sadrzi8karaktera">Najmanje 8 karaktera</p>
+          <del *ngIf="sadrzi8karaktera">Najmanje 8 karaktera</del>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer *ngIf="svrha==='pristup podacima'"  [top]="170"  ></app-footer>

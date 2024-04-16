@@ -1,0 +1,176 @@
+.outer{
+  height: 80vh;
+  background:#f7f7f7;
+  position: relative;
+  z-index: 1;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+
+
+
+
+  width: 80%;
+  margin-top: 10%;
+  box-shadow:5px 0px 5px 0px rgba(50,50,50,.75);
+  box-shadow:none;
+}
+.panel-heading{
+
+  margin-left: 6%;
+  margin-bottom: 10px;
+
+}
+.form-group{
+  display: flex;
+  flex-direction: row;
+}
+.fa-check-circle{
+  color: #0ea20e;
+  margin-top: 1%;
+  width: 5px;
+  height: 5px;
+}
+#forget{
+  min-width: 100px;
+  margin-left: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.hover{
+  text-decoration: none;
+}
+.form-inline label{
+  padding-left: 10px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.panelForma{
+
+  width: 50%;
+  background-color: white;
+
+}
+.panelP{
+
+  width: 50%;
+  background-color: white;
+}
+
+.input-field{
+  width: 80%;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: #ae01a0;
+}
+.input-field.error{
+  border: 1px solid red;
+  color: red;
+}
+.input-field.success{
+  border: 1px solid #0ea20e;
+  color: #0ea20e;
+}
+input[type="text"],
+input[type="password"]{
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+}
+
+.btn{
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color:#d70dc6 ;
+  color:white;
+  padding: 10px;
+  border-color: white;
+  font-size: 15px;
+  font-weight: 500;
+  width: 76%;
+  margin-left: 3%;
+  transition: 0.8s;
+}
+.btn:hover{
+  background-color:#ae01a0 ;
+}
+.naslovP{
+  margin-top: 5%;
+  font-size: 20px;
+  font-weight: 600;
+}
+.pp{
+
+}
+del{
+  color: #d70dc6;
+}
+.p-d{
+  margin-top: 4%;
+}
+.p-d>del{
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+.crtaBold{
+  height: 6px;
+  background-color: #2557a7;
+  width: 140%;
+  margin-left: -20%;
+
+}
+.nlabel,.nlabel-inline{
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: 600;
+  cursor:  pointer;
+
+}
+label{
+  font-size: 18px;
+
+}
+#pIzbrisi{
+  font-size: 18px;
+}
+.navbar-child  {
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+.divPodaci{
+  margin-left: 40%;
+
+}
+.nlabel-inline{
+  display: inline;
+  white-space: nowrap;
+}
+
+
+#btnOdjaviSe{
+  color: #ae01a0;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 7px;
+  margin-left: 30px;
+  border: 1px #ae01a0 solid;
+  padding: 10px;
+  transition: 0.8s;
+}
+#btnOdjaviSe:hover{
+  color:white;
+  background-color: #f8a8ef;
+  border:1px #ae01a0 solid ;
+}

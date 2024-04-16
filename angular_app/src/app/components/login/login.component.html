@@ -1,0 +1,42 @@
+<div class="outer">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+        <div class="panel border bg-white">
+          <div class="panel-heading">
+            <h3 class="pt-3 font-weight-bold">Prijavi se</h3>
+          </div>
+          <div class="panel-body p-3">
+            <form [formGroup]="loginForm">
+
+              <div class="form-group p-3">
+
+                <div class="input-field" [class.error]="checkField('username')">
+                  <span class="fa fa-user p-2"></span>
+                  <input formControlName="username" type="text" placeholder="Korisničko ime">
+                </div>
+              </div>
+              <small *ngIf="checkField('username')" class="text-danger">Korisničko ime je obavezno</small>
+              <div class="form-group p-3">
+                <div class="input-field" [class.error]="checkField('password')">
+                  <span class="fa fa-lock p-2"></span>
+                  <input formControlName="password" [type]="type" placeholder="Lozinka">
+                  <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                </div>
+              </div>
+              <small *ngIf="checkField('password')" class="text-danger">Lozinka je obavezna</small>
+
+              <div class="form-inline fr mt-4">
+                <a id="forget" class="font-weight-bold"
+                  (click)="zaboravljenaLozinka(loginForm.get('username')?.value)">Zaboravili ste lozinku?</a>
+              </div>
+              <button (click)="onLogin()" type="submit" class="btn btn-primary btn-block mt-4 w-100 ">Login</button>
+              <div class="text-center pt-4 text-muted">Niste se registrovali?<a routerLink="/registracija-menu"
+                  id="nemaRegistracije"> Registruj se</a></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

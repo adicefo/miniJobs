@@ -1,0 +1,66 @@
+/*navigation bar*/
+.navDiv
+{
+  margin-top: 1%;
+  margin-left: 3%;
+  white-space: nowrap;
+}
+.navContent
+{
+  text-decoration: none;
+  color: black;
+  font-size:medium;
+  font-weight:500;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 5%;
+}
+.znak{
+  color:rgb(174, 1, 160);
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 15%;
+  margin-right: 5%;
+}
+
+button:first-of-type{
+  margin-left: 17%;
+  margin-right: 1%;
+  width: 20%;
+}
+button
+{
+  border-radius: 20px;
+  width: 25%;
+}
+svg{
+  position: relative;
+  left:50%;
+  cursor: pointer;
+}
+#registerBtn
+{
+  color: rgb(174, 1, 160);
+  border-color: rgb(174, 1, 160);
+}
+#registerBtn:hover
+{
+  background-color: rgb(174, 1, 160);
+  color:white;
+}
+.user-menu-wrapper {
+  position: relative;
+  left:50%;
+  display: inline-block;
+  z-index: 2;
+}
+
+/* CSS for the User Menu Component (Adjust as needed) */
+app-usermenu {
+  position: absolute;
+  top: 102%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #ffffff;
+  /* Add any other styles for the user menu component */
+}

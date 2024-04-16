@@ -1,0 +1,36 @@
+.crtaBold{
+  height: 6px;
+  background-color: #2557a7;
+  width: 140%;
+  margin-left: -20%;
+
+}
+.nlabel,.nlabel-inline{
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 600;
+  cursor:  pointer;
+
+}
+label{
+  font-size: 18px;
+
+}
+#pIzbrisi{
+  font-size: 18px;
+}
+.navbar-child  {
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+.divZavrseni,.divDojmovi{
+  margin-left: 10%;
+
+}
+.nlabel-inline{
+  display: inline;
+  white-space: nowrap;
+}

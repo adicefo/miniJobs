@@ -1,0 +1,77 @@
+.outer{
+  height: 100vh;
+  background: linear-gradient(to top,white 20%,#ae01a0 85%)no-repeat;
+}
+.panel-heading{
+  text-align: center;
+  margin-bottom: 10px;
+}
+#forget{
+  min-width: 100px;
+  margin-left: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.hover{
+  text-decoration: none;
+}
+.form-inline label{
+  padding-left: 10px;
+  margin: 0;
+  cursor: pointer;
+}
+.btn{
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color:#ae01a0 ;
+  border-color: #ae01a0;
+  transition: 1s;
+}
+.btn:hover{
+  background-color: #d70dc6;
+}
+.panel{
+  min-height: 380px;
+  box-shadow: 20px 20px 80px rgb(218,218,218);
+  border-radius: 12px;
+  margin-top: 100px;
+}
+.input-field{
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: #d70dc6;
+}
+.input-field.error{
+  border: 1px solid red;
+  color: red;
+}
+input[type="text"],
+input[type="password"]{
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+}
+.fa-eye-slas.btn{
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+#nemaRegistracije, #forget{
+  color:#ae01a0;
+  transition: 1s;
+}
+#nemaRegistracije:hover,#forget:hover{
+  color: #d70dc6;
+}

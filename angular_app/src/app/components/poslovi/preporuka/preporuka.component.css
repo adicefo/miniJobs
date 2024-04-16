@@ -1,0 +1,109 @@
+.tekstDiv {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
+
+.tekstDiv p {
+    font-weight: bold;
+    font-size: large;
+}
+
+.tekstDiv p:first-of-type {
+    margin-left: 33%;
+    margin-bottom: -1%;
+    color: rgb(174, 1, 160);
+    font-size: large;
+}
+
+.opisDiv {
+    position: absolute;
+    left: 10%;
+    top: 40%;
+}
+
+.tipPoslaDiv {
+    position: absolute;
+    left: 10%;
+    top: 70%;
+}
+
+.satnicaDiv {
+    position: absolute;
+    left: 10%;
+    top: 90%;
+}
+
+.obrazovanjeDiv {
+    position: absolute;
+    left: 10%;
+    top: 110%;
+}
+
+input,
+select {
+    display: inline;
+}
+
+label {
+    font-weight: bold;
+}
+
+.cv {
+    position: absolute;
+    left: 55%;
+    top: 50%;
+}
+
+.cv i {
+    margin-left: 200px;
+    font-size: 250%;
+    cursor: pointer;
+}
+
+.slikeDiv {
+    position: absolute;
+    left: 55%;
+    top: 75%;
+}
+
+.placeholderDiv {
+
+    cursor: pointer;
+    width: 100%;
+    padding: 40px;
+
+    display: inline;
+    margin-left: 125px;
+}
+
+.iskustvoDiv {
+    position: absolute;
+    left: 55%;
+    top: 95%;
+}
+
+.radioDiv {
+    position: relative;
+    left: 60%;
+    margin-top: -7%;
+}
+
+input[type="radio"] {
+    margin-right: 35px;
+    margin-bottom: 35px;
+}
+
+
+
+.ponudaBtn {
+    width: 15%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(174, 1, 160);
+    color: white;
+
+    position: absolute;
+    top: 140%;
+    left: 45%;
+}

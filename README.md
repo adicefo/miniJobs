@@ -23,11 +23,11 @@ employers who need someone to finish their job. After job is finished they are b
 
 <br />
 
-<img src="_images/MJ4.png" width="350" height="500"> 
-<img src="_images/MJ1.png" width="350" height="500"> 
-<img src="_images/MJ3.png" width="350" height="500"> 
-<img src="_images/MJ5.png" width="350" height="500"> 
-<img src="_images/MJ6.png" width="350" height="500">
-<img src="_images/MJ7.png" width="350" height="500"> 
-<img src="_images/MJ8.png" width="350" height="500">
-<img src="_images/MJ9.png" width="350" height="500">
+<img src="_images/MJ4.png" width="1000" height="1000"> 
+<img src="_images/MJ1.png" width="1000" height="1000"> 
+<img src="_images/MJ3.png" width="1000" height="1000"> 
+<img src="_images/MJ5.png" width="1000" height="1000"> 
+<img src="_images/MJ6.png" width="1000" height="1000">
+<img src="_images/MJ7.png" width="1000" height="1000"> 
+<img src="_images/MJ8.png" width="1000" height="1000">
+<img src="_images/MJ9.png" width="1000" height="1000">

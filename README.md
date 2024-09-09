@@ -4,7 +4,7 @@
 
 ## App description
 
-Mini jobs is a web application that used as an advertisment for part-time jobs. The main goal of application is to easily connect applicants(espacialy students) who seek job and
+Mini jobs is a web application that used as an advertisment for part-time jobs. The main goal of application is to easily connect applicants(especially students) who seek job and
 employers who need someone to finish their job. After job is finished they are both obliged to rate each other as an affirmation of successful linkage.
 
 ## Tehnologies used

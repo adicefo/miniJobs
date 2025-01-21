@@ -1,12 +1,10 @@
-import {Component, Input} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
-import {ValidirajLozinke} from "../../helpers/Validator";
-import {user} from "../../models/UserVM";
-import {Router} from "@angular/router";
-import {MojConfig} from "../../mojConfig";
-declare function porukaSuccess(m:string): any;
-declare function porukaError(error: any):any;
+import { Component, Input } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "../../services/auth.service";
+import { ValidirajLozinke } from "../../helpers/Validator";
+import { user } from "../../models/UserVM";
+import { Router } from "@angular/router";
+import { MojConfig } from "../../mojConfig";
 
 
 
@@ -17,30 +15,30 @@ declare function porukaError(error: any):any;
   styleUrls: ['./nova-lozinka.component.css']
 })
 export class NovaLozinkaComponent {
-  svrha:string="pristup podacima"; //svrha moze biti nova lozinka i pristup podacima
- email:string="";
- tipKorisnika:string="";
-  type:string="password"
+  svrha: string = "pristup podacima"; //svrha moze biti nova lozinka i pristup podacima
+  email: string = "";
+  tipKorisnika: string = "";
+  type: string = "password"
 
-  forma!: FormGroup ;
-  user:user=new user();
+  forma!: FormGroup;
+  user: user = new user();
 
-  obj:any;
-  sadrziVelikoSlovo!:any
-  sadrziMaloSlovo!:any
-  sadrziBroj!:any
-  sadrziSpecijalniZnak!:any
-  sadrzi8karaktera!:any
+  obj: any;
+  sadrziVelikoSlovo!: any
+  sadrziMaloSlovo!: any
+  sadrziBroj!: any
+  sadrziSpecijalniZnak!: any
+  sadrzi8karaktera!: any
 
   labelColor: string = '#666666';
   backgroundColor: string = '#cccccc';
-  constructor(private fb:FormBuilder,public  router:Router,private mojConfig:MojConfig,
-              private auth:AuthService,
+  constructor(private fb: FormBuilder, public router: Router, private mojConfig: MojConfig,
+    private auth: AuthService,
 
 
   ) {
     this.email = "";
-    this.tipKorisnika=this.auth.getRoleFromToken();
+    this.tipKorisnika = this.auth.getRoleFromToken();
   }
 
 
@@ -48,33 +46,33 @@ export class NovaLozinkaComponent {
 
 
     this.forma = this.fb.group({
-        lozinka: [
-          '',
-          [
-            Validators.required,
-            Validators.pattern(
-              /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/
-            ),
-            Validators.minLength(8),
-          ],
-
+      lozinka: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/
+          ),
+          Validators.minLength(8),
         ],
-        potvrdiLozinku: ['', Validators.required],
 
-      },
+      ],
+      potvrdiLozinku: ['', Validators.required],
+
+    },
       {
         validator: [ValidirajLozinke('lozinka', 'potvrdiLozinku')]
       }
     )
-  this.email="";
+    this.email = "";
   }
 
-  getKontrola (imeKontorle:string){
+  getKontrola(imeKontorle: string) {
     return this.forma.get(imeKontorle);
   }
 
-  provjeriKontrolu(imeKontorle:string){
-    return  this.getKontrola(imeKontorle)?.['touched'] && this.getKontrola(imeKontorle)?.['dirty'];
+  provjeriKontrolu(imeKontorle: string) {
+    return this.getKontrola(imeKontorle)?.['touched'] && this.getKontrola(imeKontorle)?.['dirty'];
   }
 
   provjeriPattern(): void {
@@ -97,13 +95,13 @@ export class NovaLozinkaComponent {
   checkField(fieldName: string): boolean {
     return this.forma.controls[fieldName].dirty && this.forma.hasError('required', fieldName)
   }
-  private validateAllFormFields(formGroup:FormGroup){
-    Object.keys(formGroup.controls).forEach(field=>{
-      const control=formGroup.get(field);
-      if (control instanceof FormControl){
-        control.markAsDirty({onlySelf:true});
+  private validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsDirty({ onlySelf: true });
       }
-      else if (control instanceof FormGroup){
+      else if (control instanceof FormGroup) {
         this.validateAllFormFields(control)
       }
     })
@@ -124,56 +122,56 @@ export class NovaLozinkaComponent {
 
     }
 
-      if (this.forma.valid) {
+    if (this.forma.valid) {
 
-        this.mojConfig.novaLozinka({novaLozinka: this.getKontrola("lozinka")?.value, email: this.email}).subscribe({
-          next: (res: any) => {
-
-
-            this.router.navigate(["login"]);
-            porukaSuccess("Uspješno ste zamjenili lozinku.")
+      this.mojConfig.novaLozinka({ novaLozinka: this.getKontrola("lozinka")?.value, email: this.email }).subscribe({
+        next: (res: any) => {
 
 
-          },
-          error: (err) => {
-            porukaError("Molimo vas unesite odgovarajuće podatke");
+          this.router.navigate(["login"]);
+          alert("Uspješno ste zamjenili lozinku.")
 
 
-          }
-        });
-     } else {
-        this.validateAllFormFields(this.forma);
-        porukaError("Molimo vas unesite odgovarajuće podatke");
+        },
+        error: (err) => {
+          alert("Molimo vas unesite odgovarajuće podatke");
 
 
-      }
+        }
+      });
+    } else {
+      this.validateAllFormFields(this.forma);
+      alert("Molimo vas unesite odgovarajuće podatke");
+
+
+    }
 
   }
-  checkLozinkaPattern(){
+  checkLozinkaPattern() {
     const lozinkaControl = this.getKontrola('lozinka');
     const hasPatternError = lozinkaControl?.hasError('pattern');
-    return hasPatternError ;
+    return hasPatternError;
 
   }
-  isEmpty(){
+  isEmpty() {
     const lozinkaControl = this.getKontrola('lozinka');
     const lozinkaValue = lozinkaControl?.value;
     const isEmpty = lozinkaValue?.toString().trim().length === 0;
 
     return isEmpty;
   }
-  jelSePodudaraju(){
-    const lozinka=this.getKontrola('lozinka')?.value;
-    const potvrdnaLozinka=this.getKontrola('potvrdiLozinku')?.value;
-    return lozinka===potvrdnaLozinka;
+  jelSePodudaraju() {
+    const lozinka = this.getKontrola('lozinka')?.value;
+    const potvrdnaLozinka = this.getKontrola('potvrdiLozinku')?.value;
+    return lozinka === potvrdnaLozinka;
   }
-  checkPoljeLozinka():string{
-    let pattern=this.getKontrola('lozinka')?.getError('pattern');
-    let minlength=this.getKontrola('lozinka')?.getError('minlength');
-    if(this.provjeriKontrolu('lozinka')  ){
-      if(pattern)
-        return  'Lozinka treba da sadrži veliko i malo slovo, broj i specijalni znak.'
-      if(minlength)
+  checkPoljeLozinka(): string {
+    let pattern = this.getKontrola('lozinka')?.getError('pattern');
+    let minlength = this.getKontrola('lozinka')?.getError('minlength');
+    if (this.provjeriKontrolu('lozinka')) {
+      if (pattern)
+        return 'Lozinka treba da sadrži veliko i malo slovo, broj i specijalni znak.'
+      if (minlength)
         return 'Lozinka mora da se sastoji od minimalno 8 karaktera.'
     }
     return 'ne';
@@ -187,7 +185,7 @@ export class NovaLozinkaComponent {
     this.labelColor = '#666666';
     this.backgroundColor = '#cccccc';
   }
-  goToOsnovniPodaci(){
+  goToOsnovniPodaci() {
     this.router.navigate(['osnovniPodaci']);
   }
 

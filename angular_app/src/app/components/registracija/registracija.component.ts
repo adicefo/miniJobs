@@ -1,11 +1,9 @@
-import {Component, Input} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {ValidirajLozinke} from "../../helpers/Validator";
-import {MojConfig} from "../../mojConfig";
-import {HttpClient} from "@angular/common/http";
-declare function porukaSuccess(m:string): any;
-declare function porukaError(error: any):any;
+import { Component, Input } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { ValidirajLozinke } from "../../helpers/Validator";
+import { MojConfig } from "../../mojConfig";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-registracija',
@@ -13,46 +11,46 @@ declare function porukaError(error: any):any;
   styleUrls: ['./registracija.component.css']
 })
 export class RegistracijaComponent {
-  @Input() tipKorisnika!:string;
+  @Input() tipKorisnika!: string;
 
   type: string = "password"
   registracionForm!: FormGroup;
-  email:string="";
+  email: string = "";
 
-  constructor(private fb: FormBuilder, private router: Router,private mojConfig:MojConfig,private http:HttpClient) {
+  constructor(private fb: FormBuilder, private router: Router, private mojConfig: MojConfig, private http: HttpClient) {
   }
 
   ngOnInit(): void {
     this.registracionForm = this.fb.group({
-        ime: ['', [
+      ime: ['', [
+        Validators.required,
+        Validators.pattern("^[A-ZŠĐČĆŽ ][a-zšđčćž ]+$"),
+        Validators.minLength(3),
+        Validators.maxLength(20)]],
+      prezime: ['', [Validators.required,
+      Validators.pattern("^[A-ZŠĐČĆŽ ][a-zšđčćž ]+$"),
+      Validators.minLength(3),
+      Validators.maxLength(30)]],
+      email: ['', [Validators.required, Validators.pattern("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")]],
+      korisnickoIme: ['', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20)
+      ]],
+      lozinka: [
+        '',
+        [
           Validators.required,
-          Validators.pattern("^[A-ZŠĐČĆŽ ][a-zšđčćž ]+$"),
-          Validators.minLength(3),
-          Validators.maxLength(20)]],
-        prezime: ['', [Validators.required,
-          Validators.pattern("^[A-ZŠĐČĆŽ ][a-zšđčćž ]+$"),
-          Validators.minLength(3),
-          Validators.maxLength(30)]],
-        email: ['', [Validators.required,  Validators.pattern("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")]],
-        korisnickoIme: ['', [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(20)
-        ]],
-        lozinka: [
-          '',
-          [
-            Validators.required,
-            Validators.pattern(
-              /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/
-            ),
-            Validators.minLength(8),
-          ],
-
+          Validators.pattern(
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/
+          ),
+          Validators.minLength(8),
         ],
-        potvrdiLozinku: ['', Validators.required],
 
-      },
+      ],
+      potvrdiLozinku: ['', Validators.required],
+
+    },
       {
         validator: [ValidirajLozinke('lozinka', 'potvrdiLozinku')]
         //   validators: this.potvrdaLozinke.bind(this)
@@ -64,12 +62,12 @@ export class RegistracijaComponent {
 
 
 
-   getKontrola (imeKontorle:string){
+  getKontrola(imeKontorle: string) {
     return this.registracionForm.get(imeKontorle);
   }
 
-  provjeriKontrolu(imeKontorle:string){
-    return  this.getKontrola(imeKontorle)?.['touched'] && this.getKontrola(imeKontorle)?.['dirty'];
+  provjeriKontrolu(imeKontorle: string) {
+    return this.getKontrola(imeKontorle)?.['touched'] && this.getKontrola(imeKontorle)?.['dirty'];
   }
   Registracija() {
     if (this.registracionForm.valid) {
@@ -79,22 +77,22 @@ export class RegistracijaComponent {
 
 
           // radi lakšeg testiranja ovo sam zakomentarisao
-           this.email=this.getKontrola("email")?.value;
-           this.router.navigate(["email-verifikacija",{ email: this.email, prethodnaAkcija:'registracija' }]);
-           porukaSuccess("Uspješno ste se registrovali.")
+          this.email = this.getKontrola("email")?.value;
+          this.router.navigate(["email-verifikacija", { email: this.email, prethodnaAkcija: 'registracija' }]);
+          alert("Uspješno ste se registrovali.")
           this.registracionForm.reset();
           //  nek odmah ide na login
-         // this.router.navigate(['login']);
+          // this.router.navigate(['login']);
 
         },
         error: (err) => {
-          porukaError("Molimo vas unesite odgovarajuće podatke");
+          alert("Molimo vas unesite odgovarajuće podatke");
 
         }
       });
     } else {
       this.validateAllFormFields(this.registracionForm);
-      porukaError("Molimo vas unesite odgovarajuće podatke");
+      alert("Molimo vas unesite odgovarajuće podatke");
 
 
     }
@@ -108,72 +106,69 @@ export class RegistracijaComponent {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
-        control.markAsDirty({onlySelf: true});
+        control.markAsDirty({ onlySelf: true });
       } else if (control instanceof FormGroup) {
         this.validateAllFormFields(control)
       }
     })
   }
-  checkPoljeIme():string{
-    let pattern=this.getKontrola('ime')?.getError('pattern');
-    let minlength=this.getKontrola('ime')?.getError('minlength');
-    let maxlength=this.getKontrola('ime')?.getError('maxlength');
-    if(this.provjeriKontrolu('ime') )
-    {
-      if(pattern)
-        return  'Ime mora da počinje sa velikim slovom i da se sastoji samo od malih slova.'
-      if(minlength)
+  checkPoljeIme(): string {
+    let pattern = this.getKontrola('ime')?.getError('pattern');
+    let minlength = this.getKontrola('ime')?.getError('minlength');
+    let maxlength = this.getKontrola('ime')?.getError('maxlength');
+    if (this.provjeriKontrolu('ime')) {
+      if (pattern)
+        return 'Ime mora da počinje sa velikim slovom i da se sastoji samo od malih slova.'
+      if (minlength)
         return 'Ime mora da se sastoji od minimalno 3 slova.'
-      if(maxlength)
+      if (maxlength)
         return 'Ime može da se sastoji od maksimalno 20 slova.'
     }
     return 'ne';
   }
-  checkPoljePrezime():string{
-    let pattern=this.getKontrola('prezime')?.getError('pattern');
-    let minlength=this.getKontrola('prezime')?.getError('minlength');
-    let maxlength=this.getKontrola('prezime')?.getError('maxlength');
-    if(this.provjeriKontrolu('prezime') )
-    {
-      if(pattern)
-        return  'Prezime mora da počinje sa velikim slovom i da se sastoji samo od malih slova.'
-      if(minlength)
+  checkPoljePrezime(): string {
+    let pattern = this.getKontrola('prezime')?.getError('pattern');
+    let minlength = this.getKontrola('prezime')?.getError('minlength');
+    let maxlength = this.getKontrola('prezime')?.getError('maxlength');
+    if (this.provjeriKontrolu('prezime')) {
+      if (pattern)
+        return 'Prezime mora da počinje sa velikim slovom i da se sastoji samo od malih slova.'
+      if (minlength)
         return 'Prezime mora da se sastoji od minimalno 3 slova.'
-      if(maxlength)
+      if (maxlength)
         return 'Prezime može da se sastoji od maksimalno 30 slova.'
     }
     return 'ne';
 
 
   }
-  checkPoljeKorisnickome():string{
-    let minlength=this.getKontrola('korisnickoIme')?.getError('minlength');
-    let maxlength=this.getKontrola('korisnickoIme')?.getError('maxlength');
-    if(this.provjeriKontrolu('korisnickoIme') )
-    {
+  checkPoljeKorisnickome(): string {
+    let minlength = this.getKontrola('korisnickoIme')?.getError('minlength');
+    let maxlength = this.getKontrola('korisnickoIme')?.getError('maxlength');
+    if (this.provjeriKontrolu('korisnickoIme')) {
 
-      if(minlength)
+      if (minlength)
         return 'Korisničko ime mora da se sastoji od minimalno 6 karaktera.'
-      if(maxlength)
+      if (maxlength)
         return 'Korisničko ime može da se sastoji od maksimalno 20 karaktera.'
     }
     return 'ne';
 
 
   }
-  checkPoljeEmail():string{
-    let pattern=this.getKontrola('email')?.getError('pattern');
-    if(this.provjeriKontrolu('email') && pattern )
-        return 'Molimo Vas unesite validan email.'
+  checkPoljeEmail(): string {
+    let pattern = this.getKontrola('email')?.getError('pattern');
+    if (this.provjeriKontrolu('email') && pattern)
+      return 'Molimo Vas unesite validan email.'
     return 'ne';
   }
-  checkPoljeLozinka():string{
-    let pattern=this.getKontrola('lozinka')?.getError('pattern');
-    let minlength=this.getKontrola('lozinka')?.getError('minlength');
-    if(this.provjeriKontrolu('lozinka')  ){
-      if(pattern)
-        return  'Lozinka treba da sadrži veliko i malo slovo, broj i specijalni znak.'
-      if(minlength)
+  checkPoljeLozinka(): string {
+    let pattern = this.getKontrola('lozinka')?.getError('pattern');
+    let minlength = this.getKontrola('lozinka')?.getError('minlength');
+    if (this.provjeriKontrolu('lozinka')) {
+      if (pattern)
+        return 'Lozinka treba da sadrži veliko i malo slovo, broj i specijalni znak.'
+      if (minlength)
         return 'Lozinka mora da se sastoji od minimalno 8 karaktera.'
     }
     return 'ne';

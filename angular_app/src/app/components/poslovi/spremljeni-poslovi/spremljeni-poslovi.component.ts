@@ -3,8 +3,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { MojConfig } from 'src/app/mojConfig';
 import { HttpClient } from '@angular/common/http';
 
-declare function porukaSuccess(m: string): any;
-declare function porukaError(error: any): any;
 
 @Component({
   selector: 'app-spremljeni-poslovi',
@@ -40,7 +38,7 @@ export class SpremljeniPosloviComponent {
       aplikant_id: obj.aplikant_id
     };
     this.httpClient.post(this.mojConfig.adresaServera + "ApliciraniPosao/Add", this.novoApliciranje).subscribe(param => {
-      porukaSuccess("Uspješno ste aplicirali " + this.korisnik.korisnickoIme);
+      alert("Uspješno ste aplicirali " + this.korisnik.korisnickoIme);
       this.fetchPoslovi();
     });
   }
@@ -51,7 +49,7 @@ export class SpremljeniPosloviComponent {
   }
   obrisiAplicirani(id: number) {
     this.httpClient.delete(this.mojConfig.adresaServera + "ApliciraniPosao/RemoveByID?id=" + id).subscribe(param => {
-      porukaSuccess("Apliciranje uspješno izbrisano " + this.korisnik.korisnickoIme);
+      alert("Apliciranje uspješno izbrisano " + this.korisnik.korisnickoIme);
       this.fetchPoslovi();
     });
   }
@@ -86,10 +84,10 @@ export class SpremljeniPosloviComponent {
 
   ocijeni() {
     this.httpClient.post(this.mojConfig.adresaServera + "Ocjena/Add", this.novaOcjena).subscribe(x => {
-      porukaSuccess("Uspješno ocijenjen korisnik");
+      alert("Uspješno ocijenjen korisnik");
       this.novaOcjena = null;
     }, () => {
-      porukaError("Korisnik ocijenjen");
+      alert("Korisnik ocijenjen");
     });
   }
 }

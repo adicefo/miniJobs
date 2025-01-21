@@ -1,0 +1,894 @@
+[
+  {
+    "ContainingType": "webAPI.Controllers.ApliciraniPosaoController",
+    "Method": "Add",
+    "RelativePath": "ApliciraniPosao/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "x",
+        "Type": "webAPI.Models.ViewModels.ApliciraniPosaoAddVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.ApliciraniPosaoController",
+    "Method": "GetByID",
+    "RelativePath": "ApliciraniPosao/GetByID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.ApliciraniPosaoController",
+    "Method": "RemoveByID",
+    "RelativePath": "ApliciraniPosao/RemoveByID",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.AplikantController",
+    "Method": "Get",
+    "RelativePath": "Aplikant/Get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.AplikantController",
+    "Method": "GetByPosaoId",
+    "RelativePath": "Aplikant/GetByPosaoId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.AplikantController",
+    "Method": "GetInformacije",
+    "RelativePath": "Aplikant/GetInformacije",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "x",
+        "Type": "webAPI.Models.ViewModels.AplikantUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.AplikantController",
+    "Method": "Update",
+    "RelativePath": "Aplikant/Update",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "x",
+        "Type": "webAPI.Models.ViewModels.AplikantUpdateVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Modul_Autentifikacija.AutentifikacijaController",
+    "Method": "GetUserByUsername",
+    "RelativePath": "Autentifikacija/GetUserByUsername",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Modul_Autentifikacija.AutentifikacijaController",
+    "Method": "Login",
+    "RelativePath": "Autentifikacija/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "webAPI.Modul_Autentifikacija.Models.ViewModels.LoginVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Modul_Autentifikacija.AutentifikacijaController",
+    "Method": "Refresh",
+    "RelativePath": "Autentifikacija/Refresh",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tokenVM",
+        "Type": "webAPI.Modul_Autentifikacija.Models.ViewModels.TokenVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Modul_Autentifikacija.AutentifikacijaController",
+    "Method": "Registracija",
+    "RelativePath": "Autentifikacija/Registracija",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reg",
+        "Type": "webAPI.Modul_Autentifikacija.Models.ViewModels.RegistracijaVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Modul_Autentifikacija.AutentifikacijaController",
+    "Method": "RegistracijaPoslodavac",
+    "RelativePath": "Autentifikacija/RegistracijaPoslodavac",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reg",
+        "Type": "webAPI.Modul_Autentifikacija.Models.ViewModels.RegistracijaPoslodavacVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Modul_Autentifikacija.AutentifikacijaController",
+    "Method": "ResendVerifikacijaEmail",
+    "RelativePath": "Autentifikacija/ResendVerifikacijaEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "obj",
+        "Type": "webAPI.Modul_Autentifikacija.Models.ViewModels.ResendVerifikacijaEmail",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Modul_Autentifikacija.AutentifikacijaController",
+    "Method": "VerifikacijaEmail",
+    "RelativePath": "Autentifikacija/VerifikacijaEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "verifikacija",
+        "Type": "webAPI.Modul_Autentifikacija.Models.ViewModels.VerifikacijaEmailVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Modul_Autentifikacija.AutentifikacijaController",
+    "Method": "ZamjeniLozinku",
+    "RelativePath": "Autentifikacija/ZamjeniLozinku",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novaLozinka",
+        "Type": "webAPI.Modul_Autentifikacija.Models.ViewModels.NovaLozinkaVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.DrzavaController",
+    "Method": "Add",
+    "RelativePath": "Drzava/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "d",
+        "Type": "WebAPI.Models.Drzava",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.DrzavaController",
+    "Method": "DeleteById",
+    "RelativePath": "Drzava/DeleteById",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.DrzavaController",
+    "Method": "GetAll",
+    "RelativePath": "Drzava/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.DrzavaController",
+    "Method": "GetById",
+    "RelativePath": "Drzava/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.DrzavaController",
+    "Method": "Update",
+    "RelativePath": "Drzava/Update",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "d",
+        "Type": "WebAPI.Models.Drzava",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.KorisnikController",
+    "Method": "AddDodatneInformacije",
+    "RelativePath": "Korisnik/AddDodatneInformacije",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "x",
+        "Type": "webAPI.Models.ViewModels.DodatneInformacijeVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.KorisnikController",
+    "Method": "AplikantUpdatePodatke",
+    "RelativePath": "Korisnik/AplikantUpdatePodatke",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "webAPI.Models.ViewModels.PoslodavacUpdateVMcs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.KorisnikController",
+    "Method": "GetById",
+    "RelativePath": "Korisnik/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.KorisnikController",
+    "Method": "GetDojmoveByUsername",
+    "RelativePath": "Korisnik/GetDojmoveByUsername",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.KorisnikController",
+    "Method": "GetProfilByUsername",
+    "RelativePath": "Korisnik/GetProfilByUsername",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.KorisnikController",
+    "Method": "ObrisiKorisnickiNalog",
+    "RelativePath": "Korisnik/ObrisiKorisnickiNalog",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.KorisnikController",
+    "Method": "PoslodavacUpdatePodatke",
+    "RelativePath": "Korisnik/PoslodavacUpdatePodatke",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "webAPI.Models.ViewModels.PoslodavacUpdateVMcs",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.OcjenaController",
+    "Method": "Add",
+    "RelativePath": "Ocjena/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ocjena",
+        "Type": "webAPI.Models.ViewModels.OcjenaAddVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.OcjenaController",
+    "Method": "GetOcjene",
+    "RelativePath": "Ocjena/GetOcjene",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.OcjenaController",
+    "Method": "GetOcjenjeneAplikanteByPosaoId",
+    "RelativePath": "Ocjena/GetOcjenjeneAplikanteByPosaoId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "posao_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.OpstinaController",
+    "Method": "Add",
+    "RelativePath": "Opstina/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "x",
+        "Type": "WebAPI.Models.ViewModels.OpstinaAddVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.OpstinaController",
+    "Method": "DeleteById",
+    "RelativePath": "Opstina/DeleteById",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.OpstinaController",
+    "Method": "GetAll",
+    "RelativePath": "Opstina/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nazivDrzave",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.OpstinaController",
+    "Method": "GetByAll",
+    "RelativePath": "Opstina/GetByAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[WebAPI.Helper.CmbStavke, webAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.OpstinaController",
+    "Method": "GetByDrzava",
+    "RelativePath": "Opstina/GetByDrzava",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "drzava_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[WebAPI.Helper.CmbStavke, webAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.OpstinaController",
+    "Method": "GetById",
+    "RelativePath": "Opstina/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.OpstinaController",
+    "Method": "Update",
+    "RelativePath": "Opstina/Update",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "x",
+        "Type": "WebAPI.Models.ViewModels.OpstinaAddVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.PitanjeThreadController",
+    "Method": "Add",
+    "RelativePath": "PitanjeThread/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "x",
+        "Type": "webAPI.Models.ViewModels.PitanjeThreadVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.PitanjeThreadController",
+    "Method": "Get",
+    "RelativePath": "PitanjeThread/Get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.PonudjeniOdgovoriController",
+    "Method": "GetByPosaoId",
+    "RelativePath": "PonudjeniOdgovori/GetByPosaoId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "posao_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.PorukeController",
+    "Method": "Get",
+    "RelativePath": "Poruke/Get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PosaoController",
+    "Method": "Add",
+    "RelativePath": "Posao/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "p",
+        "Type": "webAPI.Models.ViewModels.PosaoAddVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PosaoController",
+    "Method": "DeleteById",
+    "RelativePath": "Posao/DeleteById",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PosaoController",
+    "Method": "GetAll",
+    "RelativePath": "Posao/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PosaoController",
+    "Method": "GetAplikantZavrsenePosloveByUsername",
+    "RelativePath": "Posao/GetAplikantZavrsenePosloveByUsername",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PosaoController",
+    "Method": "GetById",
+    "RelativePath": "Posao/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PosaoController",
+    "Method": "GetOdredeniBrojPoslova",
+    "RelativePath": "Posao/GetOdredeniBrojPoslova",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "brojposlova",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[WebAPI.Models.Posao, webAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PosaoController",
+    "Method": "GetPosloveByUsername",
+    "RelativePath": "Posao/GetPosloveByUsername",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PosaoController",
+    "Method": "Paging",
+    "RelativePath": "Posao/Paging",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.PosaoController",
+    "Method": "Update",
+    "RelativePath": "Posao/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "posao",
+        "Type": "webAPI.Models.ViewModels.PosaoAddVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.PosaoTipController",
+    "Method": "GetAll",
+    "RelativePath": "PosaoTip/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.SpremljeniPosaoController",
+    "Method": "Add",
+    "RelativePath": "SpremljeniPosao/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "x",
+        "Type": "webAPI.Models.ViewModels.SpremljeniPosaoAddVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.SpremljeniPosaoController",
+    "Method": "GetByID",
+    "RelativePath": "SpremljeniPosao/GetByID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "webAPI.Controllers.SpremljeniPosaoController",
+    "Method": "RemoveByID",
+    "RelativePath": "SpremljeniPosao/RemoveByID",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Modul_TestniPodaci.Controllers.TestniPodaciController",
+    "Method": "Count",
+    "RelativePath": "TestniPodaci/Count",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Modul_TestniPodaci.Controllers.TestniPodaciController",
+    "Method": "Generisi",
+    "RelativePath": "TestniPodaci/Generisi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

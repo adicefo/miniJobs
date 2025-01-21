@@ -1,13 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import {Component, Input, SimpleChanges, ViewChild} from '@angular/core';
+import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { MojConfig } from "../../mojConfig";
 import { SlicePipe } from '@angular/common';
 import { UsermenuComponent } from "../usermenu/usermenu.component";
 import { RegistracijaMenuComponent } from "../registracija/registracija-menu/registracija-menu.component";
 import { Router } from "@angular/router";
-import {cmbStavke} from "../../models/cmbStavke";
-declare function porukaSuccess(m: string): any;
-declare function porukaError(error: any): any;
+import { cmbStavke } from "../../models/cmbStavke";
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -49,7 +47,7 @@ export class ContentComponent {
   constructor(private mojConfig: MojConfig, private httpClient: HttpClient, private router: Router) {
   }
 
-  ngOnChanges( ): void {
+  ngOnChanges(): void {
     if (this.tipKorisnika == '') {
       this.httpClient.get(this.mojConfig.adresaServera + "Posao/GetOdredeniBrojPoslova?brojposlova=5").subscribe(x => {
         this.odredeniPoslovi = x;
@@ -112,9 +110,9 @@ export class ContentComponent {
       aplikant_id: this.korisnik.id
     };
     this.httpClient.post(this.mojConfig.adresaServera + "ApliciraniPosao/Add", this.novoApliciranje).subscribe(x => {
-      porukaSuccess("Uspješno ste aplicirali " + this.korisnik.korisnickoIme)
+      alert("Uspješno ste aplicirali " + this.korisnik.korisnickoIme)
     }, (error) => {
-      porukaError("Aplicirali ste na postojeći oglas");
+      alert("Aplicirali ste na postojeći oglas");
     });
     ;
 
@@ -128,9 +126,9 @@ export class ContentComponent {
       aplikant_id: this.korisnik.id
     };
     this.httpClient.post(this.mojConfig.adresaServera + "SpremljeniPosao/Add", this.novoApliciranje).subscribe(x => {
-      porukaSuccess("Posao uspješno spremljen " + this.korisnik.korisnickoIme)
+      alert("Posao uspješno spremljen " + this.korisnik.korisnickoIme)
     }, (error) => {
-      porukaError("Oglas već zapremljen");
+      alert("Oglas već zapremljen");
     });
   }
 
@@ -145,7 +143,7 @@ export class ContentComponent {
   postaviPitanje() {
     this.httpClient.post(this.mojConfig.adresaServera + "PitanjeThread/Add", this.postavi).subscribe(x => {
       this.postavi = null;
-      porukaSuccess("Pitanje uspješno postavljeno " + this.korisnik.korisnickoIme)
+      alert("Pitanje uspješno postavljeno " + this.korisnik.korisnickoIme)
     });
   }
 }

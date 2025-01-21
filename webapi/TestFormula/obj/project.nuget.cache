@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ENLEKZZ9f7T0lLvvkuNQUANBv7pTkGeeyk6i5a8IGH8C815TlrNl1vGYUprwcXCFpso28boLVDZhJnaLMsDiKQ==",
+  "dgSpecHash": "C7BhZA9NGt4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\adice\\OneDrive\\Desktop\\FAKULTET\\RS1\\webapi\\TestFormula\\webAPI.csproj",
+  "projectFilePath": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adice\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\adice\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

@@ -6,8 +6,6 @@ import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { MojConfig } from "../../../mojConfig";
 import { AuthService } from "../../../services/auth.service";
-declare function porukaSuccess(m:string): any;
-declare function porukaError(error: any):any;
 
 @Component({
   selector: 'app-osnovni-podaci',
@@ -175,20 +173,20 @@ export class OsnovniPodaciComponent {
         this.mojConfig.aplikantUpdatePodatke(this.formaAplikant.value).subscribe({
           next: (res: any) => {
 
-           porukaSuccess("Uspješno ažurirani podaci.")
+            alert("Uspješno ažurirani podaci.")
 
             this.forma.reset();
             this.getUser();
 
           },
           error: (err) => {
-            porukaError("Molimo vas unesite odgovarajuće podatke");
+            alert("Molimo vas unesite odgovarajuće podatke");
           }
         });
       } else {
         //throw the error using toaster and with required fields
         this.validateAllFormFields(this.formaAplikant);
-        porukaError("Molimo vas unesite odgovarajuće podatke");
+        alert("Molimo vas unesite odgovarajuće podatke");
       }
     }
 
@@ -200,7 +198,7 @@ export class OsnovniPodaciComponent {
       slika: this.slika != './assets/deafultUser.jpg' ? this.slika : ''
     };
     this.mojConfig.updateDodatneInformacije(obj).subscribe((r: any) => {
-      porukaSuccess("Uspješno ažurirani podaci.")
+      alert("Uspješno ažurirani podaci.")
     })
   }
   initFormu() {
@@ -222,7 +220,7 @@ export class OsnovniPodaciComponent {
       this.formaAplikant.get('korisnickoIme')?.setValue(this.userObj.korisnickoIme);
       this.formaAplikant.get('email')?.setValue(this.email);
     }
-    this.slika = this.userObj.slika != '' && this.userObj.slika!=null ? 'data:image/jpeg;base64,' + this.userObj.slika : this.userIcon;
+    this.slika = this.userObj.slika != '' && this.userObj.slika != null ? 'data:image/jpeg;base64,' + this.userObj.slika : this.userIcon;
     this.ponuda = this.ponuda;
 
   }

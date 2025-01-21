@@ -1,0 +1,2489 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "webAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/ApliciraniPosao/Add": {
+      "post": {
+        "tags": [
+          "ApliciraniPosao"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApliciraniPosaoAddVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApliciraniPosaoAddVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApliciraniPosaoAddVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/ApliciraniPosao/GetByID": {
+      "get": {
+        "tags": [
+          "ApliciraniPosao"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/ApliciraniPosao/RemoveByID": {
+      "delete": {
+        "tags": [
+          "ApliciraniPosao"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Aplikant/Get": {
+      "get": {
+        "tags": [
+          "Aplikant"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Aplikant/GetByPosaoId": {
+      "get": {
+        "tags": [
+          "Aplikant"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Aplikant/Update": {
+      "patch": {
+        "tags": [
+          "Aplikant"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AplikantUpdateVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AplikantUpdateVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AplikantUpdateVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Aplikant/GetInformacije": {
+      "get": {
+        "tags": [
+          "Aplikant"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AplikantUpdateVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AplikantUpdateVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AplikantUpdateVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Autentifikacija/Login": {
+      "post": {
+        "tags": [
+          "Autentifikacija"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Autentifikacija/Registracija": {
+      "post": {
+        "tags": [
+          "Autentifikacija"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistracijaVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistracijaVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistracijaVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Autentifikacija/RegistracijaPoslodavac": {
+      "post": {
+        "tags": [
+          "Autentifikacija"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistracijaPoslodavacVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistracijaPoslodavacVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistracijaPoslodavacVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Autentifikacija/ResendVerifikacijaEmail": {
+      "post": {
+        "tags": [
+          "Autentifikacija"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResendVerifikacijaEmail"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResendVerifikacijaEmail"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResendVerifikacijaEmail"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Autentifikacija/GetUserByUsername": {
+      "get": {
+        "tags": [
+          "Autentifikacija"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Autentifikacija/ZamjeniLozinku": {
+      "post": {
+        "tags": [
+          "Autentifikacija"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NovaLozinkaVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NovaLozinkaVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NovaLozinkaVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Autentifikacija/VerifikacijaEmail": {
+      "post": {
+        "tags": [
+          "Autentifikacija"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifikacijaEmailVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifikacijaEmailVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifikacijaEmailVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Autentifikacija/Refresh": {
+      "post": {
+        "tags": [
+          "Autentifikacija"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Drzava/GetAll": {
+      "get": {
+        "tags": [
+          "Drzava"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Drzava/GetById": {
+      "get": {
+        "tags": [
+          "Drzava"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Drzava/Add": {
+      "post": {
+        "tags": [
+          "Drzava"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Drzava"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Drzava"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Drzava"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Drzava/DeleteById": {
+      "delete": {
+        "tags": [
+          "Drzava"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Drzava/Update": {
+      "patch": {
+        "tags": [
+          "Drzava"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Drzava"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Drzava"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Drzava"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Korisnik/PoslodavacUpdatePodatke": {
+      "post": {
+        "tags": [
+          "Korisnik"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PoslodavacUpdateVMcs"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PoslodavacUpdateVMcs"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PoslodavacUpdateVMcs"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Korisnik/AplikantUpdatePodatke": {
+      "post": {
+        "tags": [
+          "Korisnik"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PoslodavacUpdateVMcs"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PoslodavacUpdateVMcs"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PoslodavacUpdateVMcs"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Korisnik/AddDodatneInformacije": {
+      "post": {
+        "tags": [
+          "Korisnik"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DodatneInformacijeVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DodatneInformacijeVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DodatneInformacijeVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Korisnik/GetProfilByUsername": {
+      "get": {
+        "tags": [
+          "Korisnik"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Korisnik/GetDojmoveByUsername": {
+      "get": {
+        "tags": [
+          "Korisnik"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Korisnik/GetById": {
+      "get": {
+        "tags": [
+          "Korisnik"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Korisnik/ObrisiKorisnickiNalog": {
+      "post": {
+        "tags": [
+          "Korisnik"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Ocjena/Add": {
+      "post": {
+        "tags": [
+          "Ocjena"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OcjenaAddVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OcjenaAddVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OcjenaAddVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Ocjena/GetOcjenjeneAplikanteByPosaoId": {
+      "get": {
+        "tags": [
+          "Ocjena"
+        ],
+        "parameters": [
+          {
+            "name": "posao_id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Ocjena/GetOcjene": {
+      "get": {
+        "tags": [
+          "Ocjena"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Opstina/GetAll": {
+      "get": {
+        "tags": [
+          "Opstina"
+        ],
+        "parameters": [
+          {
+            "name": "nazivDrzave",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "false"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Opstina/GetByDrzava": {
+      "get": {
+        "tags": [
+          "Opstina"
+        ],
+        "parameters": [
+          {
+            "name": "drzava_id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CmbStavke"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CmbStavke"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CmbStavke"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Opstina/GetByAll": {
+      "get": {
+        "tags": [
+          "Opstina"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CmbStavke"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CmbStavke"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CmbStavke"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Opstina/GetById": {
+      "get": {
+        "tags": [
+          "Opstina"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Opstina/Add": {
+      "post": {
+        "tags": [
+          "Opstina"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpstinaAddVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpstinaAddVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpstinaAddVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Opstina/DeleteById": {
+      "delete": {
+        "tags": [
+          "Opstina"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Opstina/Update": {
+      "patch": {
+        "tags": [
+          "Opstina"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpstinaAddVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpstinaAddVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpstinaAddVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PitanjeThread/Get": {
+      "get": {
+        "tags": [
+          "PitanjeThread"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PitanjeThread/Add": {
+      "post": {
+        "tags": [
+          "PitanjeThread"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PitanjeThreadVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PitanjeThreadVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PitanjeThreadVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PonudjeniOdgovori/GetByPosaoId": {
+      "get": {
+        "tags": [
+          "PonudjeniOdgovori"
+        ],
+        "parameters": [
+          {
+            "name": "posao_id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Poruke/Get": {
+      "get": {
+        "tags": [
+          "Poruke"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Posao/GetAll": {
+      "get": {
+        "tags": [
+          "Posao"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Posao/GetOdredeniBrojPoslova": {
+      "get": {
+        "tags": [
+          "Posao"
+        ],
+        "parameters": [
+          {
+            "name": "brojposlova",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Posao"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Posao"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Posao"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Posao/GetPosloveByUsername": {
+      "get": {
+        "tags": [
+          "Posao"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Posao/GetAplikantZavrsenePosloveByUsername": {
+      "get": {
+        "tags": [
+          "Posao"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Posao/GetById": {
+      "get": {
+        "tags": [
+          "Posao"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Posao/Add": {
+      "post": {
+        "tags": [
+          "Posao"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PosaoAddVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PosaoAddVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PosaoAddVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Posao/DeleteById": {
+      "delete": {
+        "tags": [
+          "Posao"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Posao/Update": {
+      "post": {
+        "tags": [
+          "Posao"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PosaoAddVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PosaoAddVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PosaoAddVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Posao/Paging": {
+      "get": {
+        "tags": [
+          "Posao"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 6
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "Aktivan"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PosaoTip/GetAll": {
+      "get": {
+        "tags": [
+          "PosaoTip"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SpremljeniPosao/Add": {
+      "post": {
+        "tags": [
+          "SpremljeniPosao"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpremljeniPosaoAddVM"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpremljeniPosaoAddVM"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpremljeniPosaoAddVM"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SpremljeniPosao/GetByID": {
+      "get": {
+        "tags": [
+          "SpremljeniPosao"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SpremljeniPosao/RemoveByID": {
+      "delete": {
+        "tags": [
+          "SpremljeniPosao"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/TestniPodaci/Generisi": {
+      "post": {
+        "tags": [
+          "TestniPodaci"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/TestniPodaci/Count": {
+      "get": {
+        "tags": [
+          "TestniPodaci"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApliciraniPosao": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "datum_apliciranja": {
+            "type": "string",
+            "nullable": true
+          },
+          "aplikant_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "aplikant": {
+            "$ref": "#/components/schemas/Aplikant"
+          },
+          "posao_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "posao": {
+            "$ref": "#/components/schemas/Posao"
+          },
+          "ocjene": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ocjena"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApliciraniPosaoAddVM": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "datum_apliciranja": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "posao_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "aplikant_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Aplikant": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "korisnickoIme": {
+            "type": "string",
+            "nullable": true
+          },
+          "datumRegistracije": {
+            "type": "string",
+            "nullable": true
+          },
+          "brojTelefona": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "spol": {
+            "type": "string",
+            "nullable": true
+          },
+          "datumRodjenja": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailPotvrđen": {
+            "type": "boolean"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "aplikant": {
+            "$ref": "#/components/schemas/Aplikant"
+          },
+          "poslodavac": {
+            "$ref": "#/components/schemas/Poslodavac"
+          },
+          "isAplikant": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isPoslodavac": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isAdmin": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ocjene": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ocjena"
+            },
+            "nullable": true
+          },
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "prezime": {
+            "type": "string",
+            "nullable": true
+          },
+          "prijedlogSatince": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "opis": {
+            "type": "string",
+            "nullable": true
+          },
+          "iskustvo": {
+            "type": "string",
+            "nullable": true
+          },
+          "slika": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "nivoObrazovanja": {
+            "type": "string",
+            "nullable": true
+          },
+          "cv": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "opstina_rodjenja_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "opstina_rodjenja": {
+            "$ref": "#/components/schemas/Opstina"
+          },
+          "preporuka_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "preporuka": {
+            "$ref": "#/components/schemas/Preporuka"
+          },
+          "apliciraniPoslovi": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApliciraniPosao"
+            },
+            "nullable": true
+          },
+          "spremljeniPosao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpremljeniPosao"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AplikantUpdateVM": {
+        "type": "object",
+        "properties": {
+          "opis": {
+            "type": "string",
+            "nullable": true
+          },
+          "posaoTip_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "aplikant_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prijedlogSatnice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nivoObrazovanja": {
+            "type": "string",
+            "nullable": true
+          },
+          "cv": {
+            "type": "string",
+            "nullable": true
+          },
+          "slika": {
+            "type": "string",
+            "nullable": true
+          },
+          "iskustvo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CmbStavke": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "opis": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DodatneInformacijeVM": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "slika": {
+            "type": "string",
+            "nullable": true
+          },
+          "ponuda": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Drzava": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "naziv": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KorisnickiNalog": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "korisnickoIme": {
+            "type": "string",
+            "nullable": true
+          },
+          "datumRegistracije": {
+            "type": "string",
+            "nullable": true
+          },
+          "brojTelefona": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "spol": {
+            "type": "string",
+            "nullable": true
+          },
+          "datumRodjenja": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailPotvrđen": {
+            "type": "boolean"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "slika": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "aplikant": {
+            "$ref": "#/components/schemas/Aplikant"
+          },
+          "poslodavac": {
+            "$ref": "#/components/schemas/Poslodavac"
+          },
+          "isAplikant": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isPoslodavac": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isAdmin": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ocjene": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ocjena"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginVM": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NovaLozinkaVM": {
+        "type": "object",
+        "properties": {
+          "novaLozinka": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Ocjena": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vrijednost": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "komentar": {
+            "type": "string",
+            "nullable": true
+          },
+          "ocjenjen_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ocjenjen": {
+            "$ref": "#/components/schemas/KorisnickiNalog"
+          },
+          "ocjenjuje_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ocjenjuje": {
+            "$ref": "#/components/schemas/KorisnickiNalog"
+          },
+          "apliciraniPosao_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "apliciraniPosao": {
+            "$ref": "#/components/schemas/ApliciraniPosao"
+          },
+          "datum_kreiranja": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OcjenaAddVM": {
+        "type": "object",
+        "properties": {
+          "ocjenjujeUsername": {
+            "type": "string",
+            "nullable": true
+          },
+          "ocjenjeniUsername": {
+            "type": "string",
+            "nullable": true
+          },
+          "ocjena": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "komentar": {
+            "type": "string",
+            "nullable": true
+          },
+          "posao_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Opstina": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "drzava_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "drzava": {
+            "$ref": "#/components/schemas/Drzava"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OpstinaAddVM": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "opis": {
+            "type": "string",
+            "nullable": true
+          },
+          "drzava_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PitanjeThreadVM": {
+        "type": "object",
+        "properties": {
+          "naziv": {
+            "type": "string",
+            "nullable": true
+          },
+          "datum_kreiranja": {
+            "type": "string",
+            "nullable": true
+          },
+          "posao_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Posao": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "naziv": {
+            "type": "string",
+            "nullable": true
+          },
+          "opis": {
+            "type": "string",
+            "nullable": true
+          },
+          "adresa": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "datum_kreiranja": {
+            "type": "string",
+            "nullable": true
+          },
+          "deadline": {
+            "type": "string",
+            "nullable": true
+          },
+          "cijena": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "brojAplikanata": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "opstina_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "opstina": {
+            "$ref": "#/components/schemas/Opstina"
+          },
+          "posaoTip_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "posaoTip": {
+            "$ref": "#/components/schemas/PosaoTip"
+          },
+          "poslodavac_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "poslodavac": {
+            "$ref": "#/components/schemas/Poslodavac"
+          },
+          "apliciraniPoslovi": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApliciraniPosao"
+            },
+            "nullable": true
+          },
+          "spremljeniPosao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpremljeniPosao"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PosaoAddVM": {
+        "type": "object",
+        "properties": {
+          "naziv": {
+            "type": "string",
+            "nullable": true
+          },
+          "adresa": {
+            "type": "string",
+            "nullable": true
+          },
+          "opstina_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cijena": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "opis": {
+            "type": "string",
+            "nullable": true
+          },
+          "posaoTip": {
+            "type": "string",
+            "nullable": true
+          },
+          "posaoTip_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "brojAplikanata": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deadline": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "radnoVrijeme": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "dodatnoPlacanje": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "vrstaPlacanja": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "poslodavacUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "posao_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PosaoTip": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "naziv": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Poslodavac": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "korisnickoIme": {
+            "type": "string",
+            "nullable": true
+          },
+          "datumRegistracije": {
+            "type": "string",
+            "nullable": true
+          },
+          "brojTelefona": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "spol": {
+            "type": "string",
+            "nullable": true
+          },
+          "datumRodjenja": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailPotvrđen": {
+            "type": "boolean"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshTokenExpiryTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "slika": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "aplikant": {
+            "$ref": "#/components/schemas/Aplikant"
+          },
+          "poslodavac": {
+            "$ref": "#/components/schemas/Poslodavac"
+          },
+          "isAplikant": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isPoslodavac": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isAdmin": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ocjene": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ocjena"
+            },
+            "nullable": true
+          },
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "prezime": {
+            "type": "string",
+            "nullable": true
+          },
+          "adresa": {
+            "type": "string",
+            "nullable": true
+          },
+          "ponuda": {
+            "type": "string",
+            "nullable": true
+          },
+          "nazivFirme": {
+            "type": "string",
+            "nullable": true
+          },
+          "opstina_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "opstina": {
+            "$ref": "#/components/schemas/Opstina"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PoslodavacUpdateVMcs": {
+        "type": "object",
+        "properties": {
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "prezime": {
+            "type": "string",
+            "nullable": true
+          },
+          "nazivFirme": {
+            "type": "string",
+            "nullable": true
+          },
+          "adresa": {
+            "type": "string",
+            "nullable": true
+          },
+          "korisnickoIme": {
+            "type": "string",
+            "nullable": true
+          },
+          "brojTelefona": {
+            "type": "string",
+            "nullable": true
+          },
+          "lokacija": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Preporuka": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "opstina_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "opstina": {
+            "$ref": "#/components/schemas/Opstina"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegistracijaPoslodavacVM": {
+        "type": "object",
+        "properties": {
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "prezime": {
+            "type": "string",
+            "nullable": true
+          },
+          "korisnickoIme": {
+            "type": "string",
+            "nullable": true
+          },
+          "lozinka": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "brojTelefona": {
+            "type": "string",
+            "nullable": true
+          },
+          "lokacija": {
+            "type": "string",
+            "nullable": true
+          },
+          "nazivFirme": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegistracijaVM": {
+        "type": "object",
+        "properties": {
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "prezime": {
+            "type": "string",
+            "nullable": true
+          },
+          "korisnickoIme": {
+            "type": "string",
+            "nullable": true
+          },
+          "lozinka": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "uloga": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResendVerifikacijaEmail": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "tip": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpremljeniPosao": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "aplikant_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "aplikant": {
+            "$ref": "#/components/schemas/Aplikant"
+          },
+          "posao_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "posao": {
+            "$ref": "#/components/schemas/Posao"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SpremljeniPosaoAddVM": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "posao_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "aplikant_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TokenVM": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerifikacijaEmailVM": {
+        "type": "object",
+        "properties": {
+          "kod": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "tip": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

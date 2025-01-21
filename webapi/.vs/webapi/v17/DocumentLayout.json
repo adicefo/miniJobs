@@ -1,0 +1,184 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|c:\\users\\adice\\onedrive\\desktop\\minijobs\\webapi\\testformula\\controllers\\apliciraniposaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|solutionrelative:testformula\\controllers\\apliciraniposaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|c:\\users\\adice\\onedrive\\desktop\\minijobs\\webapi\\testformula\\controllers\\ocjenacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|solutionrelative:testformula\\controllers\\ocjenacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|c:\\users\\adice\\onedrive\\desktop\\minijobs\\webapi\\testformula\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|solutionrelative:testformula\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|c:\\users\\adice\\onedrive\\desktop\\minijobs\\webapi\\testformula\\modul-autentifikacija\\controllers\\autentifikacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|solutionrelative:testformula\\modul-autentifikacija\\controllers\\autentifikacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|c:\\users\\adice\\onedrive\\desktop\\minijobs\\webapi\\testformula\\core\\repositories\\posaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|solutionrelative:testformula\\core\\repositories\\posaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|c:\\users\\adice\\onedrive\\desktop\\minijobs\\webapi\\testformula\\controllers\\porukecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|solutionrelative:testformula\\controllers\\porukecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|c:\\users\\adice\\onedrive\\desktop\\minijobs\\webapi\\testformula\\controllers\\spremljeniposaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|solutionrelative:testformula\\controllers\\spremljeniposaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|c:\\users\\adice\\onedrive\\desktop\\minijobs\\webapi\\testformula\\models\\ocjena.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|solutionrelative:testformula\\models\\ocjena.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|c:\\users\\adice\\onedrive\\desktop\\minijobs\\webapi\\testformula\\signalr\\chat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0929E683-8B6A-4A15-AAF7-1990D3D7532D}|TestFormula\\webAPI.csproj|solutionrelative:testformula\\signalr\\chat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{de1fc918-f32e-4dd7-a915-1792a051f26b}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OcjenaController.cs",
+              "DocumentMoniker": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Controllers\\OcjenaController.cs",
+              "RelativeDocumentMoniker": "TestFormula\\Controllers\\OcjenaController.cs",
+              "ToolTip": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Controllers\\OcjenaController.cs",
+              "RelativeToolTip": "TestFormula\\Controllers\\OcjenaController.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAtwE4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T18:53:30.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\appsettings.json",
+              "RelativeDocumentMoniker": "TestFormula\\appsettings.json",
+              "ToolTip": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\appsettings.json",
+              "RelativeToolTip": "TestFormula\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-21T18:53:30.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SpremljeniPosaoController.cs",
+              "DocumentMoniker": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Controllers\\SpremljeniPosaoController.cs",
+              "RelativeDocumentMoniker": "TestFormula\\Controllers\\SpremljeniPosaoController.cs",
+              "ToolTip": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Controllers\\SpremljeniPosaoController.cs",
+              "RelativeToolTip": "TestFormula\\Controllers\\SpremljeniPosaoController.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAkwCkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T18:53:30.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Ocjena.cs",
+              "DocumentMoniker": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Models\\Ocjena.cs",
+              "RelativeDocumentMoniker": "TestFormula\\Models\\Ocjena.cs",
+              "ToolTip": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Models\\Ocjena.cs",
+              "RelativeToolTip": "TestFormula\\Models\\Ocjena.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T18:53:30.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApliciraniPosaoController.cs",
+              "DocumentMoniker": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Controllers\\ApliciraniPosaoController.cs",
+              "RelativeDocumentMoniker": "TestFormula\\Controllers\\ApliciraniPosaoController.cs",
+              "ToolTip": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Controllers\\ApliciraniPosaoController.cs",
+              "RelativeToolTip": "TestFormula\\Controllers\\ApliciraniPosaoController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAtwDIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T18:53:30.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PosaoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Core\\Repositories\\PosaoRepository.cs",
+              "RelativeDocumentMoniker": "TestFormula\\Core\\Repositories\\PosaoRepository.cs",
+              "ToolTip": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Core\\Repositories\\PosaoRepository.cs",
+              "RelativeToolTip": "TestFormula\\Core\\Repositories\\PosaoRepository.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAgwA8AAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T18:53:30.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Chat.cs",
+              "DocumentMoniker": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\SignalR\\Chat.cs",
+              "RelativeDocumentMoniker": "TestFormula\\SignalR\\Chat.cs",
+              "ToolTip": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\SignalR\\Chat.cs",
+              "RelativeToolTip": "TestFormula\\SignalR\\Chat.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAYAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T18:53:30.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AutentifikacijaController.cs",
+              "DocumentMoniker": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Modul-Autentifikacija\\Controllers\\AutentifikacijaController.cs",
+              "RelativeDocumentMoniker": "TestFormula\\Modul-Autentifikacija\\Controllers\\AutentifikacijaController.cs",
+              "ToolTip": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Modul-Autentifikacija\\Controllers\\AutentifikacijaController.cs",
+              "RelativeToolTip": "TestFormula\\Modul-Autentifikacija\\Controllers\\AutentifikacijaController.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAgwIEAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T18:53:55.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PorukeController.cs",
+              "DocumentMoniker": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Controllers\\PorukeController.cs",
+              "RelativeDocumentMoniker": "TestFormula\\Controllers\\PorukeController.cs",
+              "ToolTip": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\Controllers\\PorukeController.cs",
+              "RelativeToolTip": "TestFormula\\Controllers\\PorukeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T18:53:30.511Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

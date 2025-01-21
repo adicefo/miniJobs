@@ -1,16 +1,14 @@
-import {Component, EventEmitter, Input,Output} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {DomSanitizer} from "@angular/platform-browser";
-import {MojConfig} from "../../mojConfig";
-import {UserStoreService} from "../../services/user-store.service";
-import {PosaoServiceService} from "../../services/posao.service.service";
-import {PosaoPreviewServiceService} from "../../services/posao-preview.service.service";
-import {AuthService} from "../../services/auth.service";
-import {cmbStavke} from "../../models/cmbStavke";
-import {HttpClient} from "@angular/common/http";
-declare function porukaSuccess(m: string): any;
-declare function porukaError(error: any): any;
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { DomSanitizer } from "@angular/platform-browser";
+import { MojConfig } from "../../mojConfig";
+import { UserStoreService } from "../../services/user-store.service";
+import { PosaoServiceService } from "../../services/posao.service.service";
+import { PosaoPreviewServiceService } from "../../services/posao-preview.service.service";
+import { AuthService } from "../../services/auth.service";
+import { cmbStavke } from "../../models/cmbStavke";
+import { HttpClient } from "@angular/common/http";
 @Component({
   selector: 'app-posao-view',
   templateUrl: './posao-view.component.html',
@@ -19,11 +17,11 @@ declare function porukaError(error: any): any;
 export class PosaoViewComponent {
   @Input() posao!: any;
   @Input() isModalOpen !: any;
-  postavi!:any
+  postavi!: any
   nacinPlacanja!: cmbStavke[]
   dodatnoPlacanje!: cmbStavke[]
   rasporedPosla!: cmbStavke[]
-  tipKorisnika!:any
+  tipKorisnika!: any
   public novoApliciranje: any;
   @Output() modalClosed: EventEmitter<void> = new EventEmitter<void>();
 
@@ -35,7 +33,7 @@ export class PosaoViewComponent {
 
   constructor(private fb: FormBuilder, public router: Router, private sanitizer: DomSanitizer, private mojConfig: MojConfig
     , private userStore: UserStoreService, private posaoService: PosaoServiceService,
-              private posaoPreviewService: PosaoPreviewServiceService, private auth: AuthService, private httpClient: HttpClient) {
+    private posaoPreviewService: PosaoPreviewServiceService, private auth: AuthService, private httpClient: HttpClient) {
   }
 
   ngOnInit() {
@@ -62,7 +60,7 @@ export class PosaoViewComponent {
 
   InitFields() {
     if (this.posao) {
-      this.tipKorisnika=this.auth.getRoleFromToken();
+      this.tipKorisnika = this.auth.getRoleFromToken();
       let nacinPlacanjaObj = this.nacinPlacanja.find(stavka => stavka.id === this.posao.nacinPlacanja);
       this.posao.nacinPlacanjacopy = nacinPlacanjaObj?.opis;
       if (this.posao.dodatnoPlacanja) {
@@ -73,9 +71,9 @@ export class PosaoViewComponent {
       this.posao.rasporedOdgovoricopy = rasporedStavke.map(stavka => stavka.opis);
 
     }
-    this.posao.deadline=this.uredivanjeDatuma(this.posao.deadline);
+    this.posao.deadline = this.uredivanjeDatuma(this.posao.deadline);
   }
-  uredivanjeDatuma(datum :any):any {
+  uredivanjeDatuma(datum: any): any {
 
     return datum.slice(0, 11);
   }
@@ -90,34 +88,34 @@ export class PosaoViewComponent {
   postaviPitanje() {
     this.httpClient.post(this.mojConfig.adresaServera + "PitanjeThread/Add", this.postavi).subscribe(x => {
       this.postavi = null;
-      porukaSuccess("Pitanje uspješno postavljeno " )
+      alert("Pitanje uspješno postavljeno ")
     });
   }
   spremiPosao() {
     let aplikant
-    let user={
-      username:this.auth.getUserNameFromToken(),
-      role:this.auth.getRoleFromToken()
+    let user = {
+      username: this.auth.getUserNameFromToken(),
+      role: this.auth.getRoleFromToken()
     }
     this.mojConfig.getUserByUsernameAndRole(user).subscribe((r: any) => {
       aplikant = r;
-    this.novoApliciranje = {
-      status: 0,
-      posao_id: this.posao.id,
-      aplikant_id: aplikant.id
-    };
-    this.httpClient.post(this.mojConfig.adresaServera + "SpremljeniPosao/Add", this.novoApliciranje).subscribe(x => {
-      porukaSuccess("Posao uspješno spremljen ")
-    }, (error) => {
-      porukaError("Oglas već zapremljen");
-    });
+      this.novoApliciranje = {
+        status: 0,
+        posao_id: this.posao.id,
+        aplikant_id: aplikant.id
+      };
+      this.httpClient.post(this.mojConfig.adresaServera + "SpremljeniPosao/Add", this.novoApliciranje).subscribe(x => {
+        alert("Posao uspješno spremljen ")
+      }, (error) => {
+        alert("Oglas već zapremljen");
+      });
     });
   }
   apliciraj() {
     let aplikant
-    let user={
-      username:this.auth.getUserNameFromToken(),
-      role:this.auth.getRoleFromToken()
+    let user = {
+      username: this.auth.getUserNameFromToken(),
+      role: this.auth.getRoleFromToken()
     }
     this.mojConfig.getUserByUsernameAndRole(user).subscribe((r: any) => {
       aplikant = r;
@@ -128,9 +126,9 @@ export class PosaoViewComponent {
         aplikant_id: aplikant.id
       };
       this.httpClient.post(this.mojConfig.adresaServera + "ApliciraniPosao/Add", this.novoApliciranje).subscribe(x => {
-        porukaSuccess("Uspješno ste aplicirali " +this.auth.getUserNameFromToken())
+        alert("Uspješno ste aplicirali " + this.auth.getUserNameFromToken())
       }, (error) => {
-        porukaError("Aplicirali ste na postojeći oglas");
+        alert("Aplicirali ste na postojeći oglas");
       });
       ;
 

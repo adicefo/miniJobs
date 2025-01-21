@@ -3979,11 +3979,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adice\\OneDrive\\Desktop\\FAKULTET\\RS1\\webapi\\TestFormula\\webAPI.csproj",
+      "projectUniqueName": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
       "projectName": "webAPI",
-      "projectPath": "C:\\Users\\adice\\OneDrive\\Desktop\\FAKULTET\\RS1\\webapi\\TestFormula\\webAPI.csproj",
+      "projectPath": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
       "packagesPath": "C:\\Users\\adice\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adice\\OneDrive\\Desktop\\FAKULTET\\RS1\\webapi\\TestFormula\\obj\\",
+      "outputPath": "C:\\Users\\adice\\OneDrive\\Desktop\\miniJobs\\webapi\\TestFormula\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4010,7 +4010,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net6.0": {
@@ -4068,7 +4074,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
